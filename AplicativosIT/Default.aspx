@@ -17,11 +17,16 @@
 
                 <dx:ASPxCardView ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" KeyFieldName="Id">
                     <ClientSideEvents SelectionChanged="OnCardSelectionChanged" />
+                    <SettingsEditing Mode="PopupEditForm">
+                        <BatchEditSettings EditMode="Card" />
+                    </SettingsEditing>
                     <SettingsBehavior AllowFocusedCard="True" AllowSelectByCardClick="true" />
                     <SettingsPopup>
                         <EditForm>
                             <SettingsAdaptivity Mode="OnWindowInnerWidth" SwitchAtWindowInnerWidth="768" />
                         </EditForm>
+
+<FilterControl AutoUpdatePosition="False"></FilterControl>
                     </SettingsPopup>
                     <SettingsExport ExportSelectedCardsOnly="False"></SettingsExport>
                     <Columns>
