@@ -24,6 +24,15 @@ namespace AplicativosIT
         protected global::DevExpress.Web.ASPxCardView ASPxCardView1;
 
         /// <summary>
+        /// Control SqlDataSource3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
+
+        /// <summary>
         /// Control SqlDataSource2.
         /// </summary>
         /// <remarks>
@@ -60,87 +69,6 @@ namespace AplicativosIT
         protected global::DevExpress.Web.ASPxPopupControl pcLogin;
 
         /// <summary>
-        /// Control Panel1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPanel Panel1;
-
-        /// <summary>
-        /// Control ASPxFormLayout1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
-
-        /// <summary>
-        /// Control ASPxFormLayout1_E8.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxFormLayout1_E8;
-
-        /// <summary>
-        /// Control ASPxTextBox1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxTextBox1;
-
-        /// <summary>
-        /// Control ASPxBinaryImage1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxBinaryImage ASPxBinaryImage1;
-
-        /// <summary>
-        /// Control ASPxFormLayout1_E1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxFormLayout1_E1;
-
-        /// <summary>
-        /// Control ASPxFormLayout1_E2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxFormLayout1_E2;
-
-        /// <summary>
-        /// Control ASPxFormLayout1_E3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox ASPxFormLayout1_E3;
-
-        /// <summary>
-        /// Control ASPxFormLayout1_E4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox ASPxFormLayout1_E4;
-
-        /// <summary>
         /// Control DetailsView1.
         /// </summary>
         /// <remarks>
@@ -150,40 +78,13 @@ namespace AplicativosIT
         protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
 
         /// <summary>
-        /// Control lblClubMemberId.
+        /// Control project.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel lblClubMemberId;
-
-        /// <summary>
-        /// Control ASPxGridView1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView ASPxGridView1;
-
-        /// <summary>
-        /// Control ASPxButton1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton ASPxButton1;
-
-        /// <summary>
-        /// Control ASPxButton2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton ASPxButton2;
+        protected global::System.Web.UI.WebControls.SqlDataSource project;
 
         /// <summary>
         /// Control pcCreateAccount.

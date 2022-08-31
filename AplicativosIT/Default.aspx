@@ -30,38 +30,39 @@
     <div class="row">
         <div class="col-md-4">
 
-            <dx:ASPxCardView ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" KeyFieldName="Id">
+            <dx:ASPxCardView ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3">
                 <ClientSideEvents SelectionChanged="OnCardSelectionChanged" />
-                <SettingsEditing Mode="PopupEditForm">
+                 <SettingsEditing Mode="PopupEditForm">
                     <BatchEditSettings EditMode="Card" />
                 </SettingsEditing>
-                <SettingsBehavior AllowFocusedCard="True" AllowSelectByCardClick="true" />
+                 <SettingsBehavior AllowFocusedCard="True" AllowSelectByCardClick="true" />
                 <SettingsPopup>
-                    <EditForm>
-                        <SettingsAdaptivity Mode="OnWindowInnerWidth" SwitchAtWindowInnerWidth="768" />
-                    </EditForm>
-
                     <FilterControl AutoUpdatePosition="False"></FilterControl>
                 </SettingsPopup>
+
                 <SettingsExport ExportSelectedCardsOnly="False"></SettingsExport>
+
                 <Columns>
-                    <dx:CardViewTextColumn FieldName="Id" ReadOnly="True" Visible="False">
+                    <dx:CardViewTextColumn FieldName="url" VisibleIndex="0">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="AccountName" VisibleIndex="0">
+                    <dx:CardViewTextColumn FieldName="logo" VisibleIndex="1">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="Password" VisibleIndex="1">
-                    </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="modulos" VisibleIndex="2">
+                    <dx:CardViewTextColumn FieldName="name_envioronment" VisibleIndex="2">
                     </dx:CardViewTextColumn>
                 </Columns>
 
                 <StylesExport>
                     <Card BorderSize="1" BorderSides="All"></Card>
+
                     <Group BorderSize="1" BorderSides="All"></Group>
+
                     <TabbedGroup BorderSize="1" BorderSides="All"></TabbedGroup>
+
                     <Tab BorderSize="1"></Tab>
                 </StylesExport>
             </dx:ASPxCardView>
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:projectConnectionString %>" SelectCommand="SELECT [url], [logo], [name_envioronment] FROM [info_environment]"></asp:SqlDataSource>
+            <br />
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:documentsConnectionString2 %>" DeleteCommand="DELETE FROM [Users] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Users] ([AccountName], [Password]) VALUES (@AccountName, @Password)" SelectCommand="SELECT * FROM [Users]" UpdateCommand="UPDATE [Users] SET [AccountName] = @AccountName, [Password] = @Password WHERE [Id] = @Id">
                 <DeleteParameters>
                     <asp:Parameter Name="Id" Type="Int32" />
@@ -97,179 +98,24 @@
     </div>
     <dx:ASPxPopupControl ID="pcLogin" runat="server" Width="750px" CloseAction="CloseButton" CloseOnEscape="true" Modal="True"
         PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcLogin"
-        HeaderText="Agregar" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="true" Theme="Material" ScrollBars="Vertical" >
+        HeaderText="Agregar" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="true" Theme="Material" ScrollBars="Vertical">
         <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('entryGroup'); tbLogin.Focus(); }" />
-        <ContentCollection>
-            <dx:PopupControlContentControl runat="server">
-                <dx:ASPxPanel ID="Panel1" runat="server" DefaultButton="btOK" Width="700px">
-                    <PanelCollection>
-                        <dx:PanelContent runat="server">
-                            Informacion del Entorno<dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" Width="100%" Height="94%" style="margin-right: 0px">
-                                <Items>
-                                    <dx:LayoutItem Caption="Nombre del entorno" ColSpan="1">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxTextBox ID="ASPxFormLayout1_E8" runat="server" Height="18px" Width="373px">
-                                                    <ValidationSettings EnableCustomValidation="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom" SetFocusOnError="True" ValidationGroup="entryGroup">
-                                                        <ErrorFrameStyle Font-Size="10px">
-                                                            <ErrorTextPaddings PaddingLeft="0px" />
-                                                        </ErrorFrameStyle>
-                                                        <RequiredField ErrorText="Password required" IsRequired="True" />
-                                                    </ValidationSettings>
-                                                </dx:ASPxTextBox>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="Url del entorno">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="100%" Password="True">
-                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="entryGroup" SetFocusOnError="True"
-                                                        ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
-                                                        <RequiredField ErrorText="Password required" IsRequired="True" />
-                                                        <ErrorFrameStyle Font-Size="10px">
-                                                            <ErrorTextPaddings PaddingLeft="0px" />
-                                                        </ErrorFrameStyle>
-                                                    </ValidationSettings>
-                                                </dx:ASPxTextBox>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="Logo del cliente">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer>
-                                                 <dx:ASPxBinaryImage ID="ASPxBinaryImage1" runat="server" ShowLoadingImage="True">
-                                                     <EditingSettings Enabled="True">
-                                                     </EditingSettings>
-                                                 </dx:ASPxBinaryImage>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                   
-                                    <dx:LayoutItem Caption="de base de datos" ColSpan="1" ShowCaption="False">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                Informacion de Base de Datos
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="IP de servidor de aplicativo" ColSpan="1">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxTextBox ID="ASPxFormLayout1_E1" runat="server" Height="16px" Width="321px">
-                                                    <ValidationSettings>
-          <RequiredField ErrorText="La IP es requerida" IsRequired="True" />
-          <RegularExpression ErrorText="La IP no es valida" ValidationExpression="^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$" />
-     </ValidationSettings>
-                                                </dx:ASPxTextBox>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="IP de servidor de base de datos" ColSpan="1">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxTextBox ID="ASPxFormLayout1_E2" runat="server" Height="16px" Width="294px">
-                                                </dx:ASPxTextBox>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="Gestor de Base de Datos" ColSpan="1">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxComboBox ID="ASPxFormLayout1_E3" runat="server" Height="16px" Width="338px">
-                                                </dx:ASPxComboBox>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="Version del gestor" ColSpan="1">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxComboBox ID="ASPxFormLayout1_E4" runat="server" Height="19px" Width="379px">
-                                                </dx:ASPxComboBox>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="Informacion de modulos" ColSpan="1" ShowCaption="False">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                Informacion de Modulos
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem ColSpan="1">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="Id" DataSourceID="SqlDataSource2" Height="50px" Width="125px">
-                                                    <Fields>
-                                                        <asp:BoundField DataField="modulos" HeaderText="modulos" SortExpression="modulos" />
-                                                    </Fields>
-                                                </asp:DetailsView>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-
-                                    <dx:LayoutItem Caption="Cantidad de modulos" ColSpan="1">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxLabel ID="lblClubMemberId" runat="server" Text='<%# Bind("modulos") %>' />                                            
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-
-                                    <dx:LayoutItem Caption="" ColSpan="1">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" KeyFieldName="Id" Theme="MaterialCompact">
-                                                    <SettingsPopup>
-                                                        <FilterControl AutoUpdatePosition="False">
-                                                        </FilterControl>
-                                                    </SettingsPopup>
-                                                    <Columns>
-                                                        <dx:GridViewDataTextColumn FieldName="Id" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="0">
-                                                            <EditFormSettings Visible="False" />
-                                                        </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn FieldName="AccountName" ShowInCustomizationForm="True" VisibleIndex="1">
-                                                        </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn FieldName="Password" ShowInCustomizationForm="True" VisibleIndex="2">
-                                                        </dx:GridViewDataTextColumn>
-                                                        <dx:GridViewDataTextColumn FieldName="modulos" ShowInCustomizationForm="True" VisibleIndex="3">
-                                                        </dx:GridViewDataTextColumn>
-                                                    </Columns>
-                                                </dx:ASPxGridView>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                     <dx:LayoutItem ShowCaption="False">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="ASPxButton1" runat="server" Text="OK" Width="80px" AutoPostBack="False" Style="float: left; margin-right: 8px">
-                                                    <ClientSideEvents Click="function(s, e) {
-                                                        if(ASPxClientEdit.ValidateGroup('createAccountGroup')) {
-                                                            ASPxClientEdit.ClearGroup('entryGroup');
-                                                            tbLogin.SetText(tbUsername.GetText());
-                                                            pcCreateAccount.Hide();
-                                                        }
-                                                    }" />
-                                                </dx:ASPxButton>
-                                                <dx:ASPxButton ID="ASPxButton2" runat="server" Text="Cancel" Width="80px" AutoPostBack="False" Style="float: left; margin-right: 8px">
-                                                    <ClientSideEvents Click="function(s, e) { pcCreateAccount.Hide(); }" />
-                                                </dx:ASPxButton>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    
-                                </Items>
-                            </dx:ASPxFormLayout>
-                            HBNc
-                        </dx:PanelContent>
-                    </PanelCollection>
-                </dx:ASPxPanel>
-
-            </dx:PopupControlContentControl>
-        </ContentCollection>
         <ContentStyle>
             <Paddings PaddingBottom="5px" />
         </ContentStyle>
+        <ContentCollection>
+            <dx:PopupControlContentControl runat="server">
+                <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="project" Height="50px" Width="100%">
+                    <Fields>
+                        <asp:BoundField DataField="logo" HeaderText="logo" SortExpression="logo" />
+                        <asp:BoundField DataField="name_envioronment" HeaderText="name_envioronment" SortExpression="name_envioronment" />
+                        <asp:BoundField DataField="url" HeaderText="url" SortExpression="url" />
+                        <asp:BoundField DataField="number_module" HeaderText="number_module" SortExpression="number_module" />
+                    </Fields>
+                </asp:DetailsView>
+                <asp:SqlDataSource ID="project" runat="server" ConnectionString="<%$ ConnectionStrings:projectConnectionString %>" SelectCommand="SELECT [logo], [name_envioronment], [url], [number_module] FROM [info_environment]"></asp:SqlDataSource>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
     </dx:ASPxPopupControl>
     <dx:ASPxPopupControl ID="pcCreateAccount" runat="server" Width="320" CloseAction="CloseButton" CloseOnEscape="true"
         PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcCreateAccount"

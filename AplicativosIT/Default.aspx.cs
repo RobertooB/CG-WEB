@@ -20,8 +20,6 @@ namespace AplicativosIT
             Console.WriteLine("Pe causa");
 
 
-            ASPxFormLayout1_E4.DataSource = CreateData();
-            ASPxFormLayout1_E4.DataBind();
             //ASPxFormLayout1_E5.Text = ASPxGridView1.VisibleRowCount.ToString();
 }
 
@@ -50,17 +48,6 @@ namespace AplicativosIT
 
         }
 
-        
 
-        protected void ASPxTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void ASPxFormLayout1_E5_TextChanged(object sender, EventArgs e)
-        {
-
-
-        }
     }
 }
