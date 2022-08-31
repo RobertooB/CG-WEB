@@ -96,22 +96,13 @@ namespace AplicativosIT
         protected global::DevExpress.Web.ASPxTextBox ASPxTextBox1;
 
         /// <summary>
-        /// Control UploadControl.
+        /// Control ASPxBinaryImage1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxUploadControl UploadControl;
-
-        /// <summary>
-        /// Control ASPxFormLayout1_E6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxImage ASPxFormLayout1_E6;
+        protected global::DevExpress.Web.ASPxBinaryImage ASPxBinaryImage1;
 
         /// <summary>
         /// Control ASPxFormLayout1_E1.
@@ -150,13 +141,22 @@ namespace AplicativosIT
         protected global::DevExpress.Web.ASPxComboBox ASPxFormLayout1_E4;
 
         /// <summary>
-        /// Control ASPxFormLayout1_E5.
+        /// Control DetailsView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxFormLayout1_E5;
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
+
+        /// <summary>
+        /// Control lblClubMemberId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblClubMemberId;
 
         /// <summary>
         /// Control ASPxGridView1.

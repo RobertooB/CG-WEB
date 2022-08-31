@@ -6,17 +6,38 @@ using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DevExpress.Web;
+using System.Collections;
+using DevExpress.Web.Data;
 
 namespace AplicativosIT
 {
     public partial class _Default : Page
     {
+        String[] tableData = { "Modulo 1", "Nombre 1", "Accion 1"};
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+            Console.WriteLine(CreateData());
+            Console.WriteLine("Pe causa");
+
+
+            ASPxFormLayout1_E4.DataSource = CreateData();
+            ASPxFormLayout1_E4.DataBind();
+            //ASPxFormLayout1_E5.Text = ASPxGridView1.VisibleRowCount.ToString();
+}
+
+
+    private ArrayList CreateData()
+        {
+            ArrayList ds = new ArrayList();
+            ds.Add("ASPxGridView and Editors");
+            ds.Add("ASPxTreeList");
+            ds.Add("ASPxCloudControl");
+            ds.Add("ASPxHtmlEditor");
+            ds.Add("ASPxPivotGrid");
+            return ds;
         }
 
-        const string UploadDirectory = "C:/uploads";
+        const string UploadDirectory = "C:/uploads/";
 
 
         protected void UploadControl_FileUploadComplete(object sender, FileUploadCompleteEventArgs e)
@@ -29,8 +50,16 @@ namespace AplicativosIT
 
         }
 
+        
+
         protected void ASPxTextBox2_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        protected void ASPxFormLayout1_E5_TextChanged(object sender, EventArgs e)
+        {
+
 
         }
     }

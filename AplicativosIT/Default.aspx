@@ -51,6 +51,8 @@
                     </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="Password" VisibleIndex="1">
                     </dx:CardViewTextColumn>
+                    <dx:CardViewTextColumn FieldName="modulos" VisibleIndex="2">
+                    </dx:CardViewTextColumn>
                 </Columns>
 
                 <StylesExport>
@@ -93,16 +95,16 @@
             <ClientSideEvents Click="function(s, e) { ShowLoginWindow(); }" />
         </dx:ASPxButton>
     </div>
-    <dx:ASPxPopupControl ID="pcLogin" runat="server" Width="539px" CloseAction="CloseButton" CloseOnEscape="true" Modal="True"
+    <dx:ASPxPopupControl ID="pcLogin" runat="server" Width="750px" CloseAction="CloseButton" CloseOnEscape="true" Modal="True"
         PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcLogin"
-        HeaderText="Agregar" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="true">
+        HeaderText="Agregar" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="true" Theme="Material" ScrollBars="Vertical" >
         <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('entryGroup'); tbLogin.Focus(); }" />
         <ContentCollection>
             <dx:PopupControlContentControl runat="server">
-                <dx:ASPxPanel ID="Panel1" runat="server" DefaultButton="btOK">
+                <dx:ASPxPanel ID="Panel1" runat="server" DefaultButton="btOK" Width="700px">
                     <PanelCollection>
                         <dx:PanelContent runat="server">
-                            Informacion del Entorno<dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" Width="100%" Height="100%" style="margin-right: 0px">
+                            Informacion del Entorno<dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" Width="100%" Height="94%" style="margin-right: 0px">
                                 <Items>
                                     <dx:LayoutItem Caption="Nombre del entorno" ColSpan="1">
                                         <LayoutItemNestedControlCollection>
@@ -133,30 +135,17 @@
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="Logo del cliente" HorizontalAlign="Left" Width="250px">
+                                    <dx:LayoutItem Caption="Logo del cliente">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                 <dx:ASPxUploadControl ID="UploadControl" runat="server" ClientInstanceName="UploadControl" Width="100%"
-            NullText="Select multiple files..." UploadMode="Advanced"
-            OnFileUploadComplete="UploadControl_FileUploadComplete" ShowClearFileSelectionButton="False" UploadStorage="FileSystem">
-            <AdvancedModeSettings EnableDragAndDrop="True" />
-            <ValidationSettings MaxFileSize="4194304" AllowedFileExtensions=".jpg,.jpeg,.gif,.png">
-            </ValidationSettings>
-            <ClientSideEvents FilesUploadStart="function(s, e) { DXUploadedFilesContainer.Clear(); }"
-                              FileUploadComplete="onFileUploadComplete" />
-        </dx:ASPxUploadControl>
-                                                 &nbsp;
+                                                 <dx:ASPxBinaryImage ID="ASPxBinaryImage1" runat="server" ShowLoadingImage="True">
+                                                     <EditingSettings Enabled="True">
+                                                     </EditingSettings>
+                                                 </dx:ASPxBinaryImage>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
-                                    <dx:LayoutItem ColSpan="1" Height="200px" HorizontalAlign="Right" Width="200px">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxImage ID="ASPxFormLayout1_E6" runat="server">
-                                                </dx:ASPxImage>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
+                                   
                                     <dx:LayoutItem Caption="de base de datos" ColSpan="1" ShowCaption="False">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer runat="server">
@@ -168,6 +157,10 @@
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer runat="server">
                                                 <dx:ASPxTextBox ID="ASPxFormLayout1_E1" runat="server" Height="16px" Width="321px">
+                                                    <ValidationSettings>
+          <RequiredField ErrorText="La IP es requerida" IsRequired="True" />
+          <RegularExpression ErrorText="La IP no es valida" ValidationExpression="^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$" />
+     </ValidationSettings>
                                                 </dx:ASPxTextBox>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
@@ -203,11 +196,22 @@
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="Cantidad de modulos del entorno" ColSpan="1">
+                                    <dx:LayoutItem ColSpan="1">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxTextBox ID="ASPxFormLayout1_E5" runat="server" Height="23px" Width="281px">
-                                                </dx:ASPxTextBox>
+                                                <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="Id" DataSourceID="SqlDataSource2" Height="50px" Width="125px">
+                                                    <Fields>
+                                                        <asp:BoundField DataField="modulos" HeaderText="modulos" SortExpression="modulos" />
+                                                    </Fields>
+                                                </asp:DetailsView>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+
+                                    <dx:LayoutItem Caption="Cantidad de modulos" ColSpan="1">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer runat="server">
+                                                <dx:ASPxLabel ID="lblClubMemberId" runat="server" Text='<%# Bind("modulos") %>' />                                            
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -215,18 +219,23 @@
                                     <dx:LayoutItem Caption="" ColSpan="1">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer runat="server">
-                                                <dx:ASPxGridView ID="ASPxGridView1" runat="server" Width="457px">
+                                                <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" KeyFieldName="Id" Theme="MaterialCompact">
                                                     <SettingsPopup>
                                                         <FilterControl AutoUpdatePosition="False">
                                                         </FilterControl>
                                                     </SettingsPopup>
+                                                    <Columns>
+                                                        <dx:GridViewDataTextColumn FieldName="Id" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="0">
+                                                            <EditFormSettings Visible="False" />
+                                                        </dx:GridViewDataTextColumn>
+                                                        <dx:GridViewDataTextColumn FieldName="AccountName" ShowInCustomizationForm="True" VisibleIndex="1">
+                                                        </dx:GridViewDataTextColumn>
+                                                        <dx:GridViewDataTextColumn FieldName="Password" ShowInCustomizationForm="True" VisibleIndex="2">
+                                                        </dx:GridViewDataTextColumn>
+                                                        <dx:GridViewDataTextColumn FieldName="modulos" ShowInCustomizationForm="True" VisibleIndex="3">
+                                                        </dx:GridViewDataTextColumn>
+                                                    </Columns>
                                                 </dx:ASPxGridView>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="" ColSpan="1">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer runat="server">
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
@@ -248,15 +257,14 @@
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
+                                    
                                 </Items>
                             </dx:ASPxFormLayout>
+                            HBNc
                         </dx:PanelContent>
                     </PanelCollection>
                 </dx:ASPxPanel>
 
-                <div>
-                    <a href="javascript:ShowCreateAccountWindow();" id="hl1" style="float: right; margin: 14px 0 10px 0;">Create Account</a>
-                </div>
             </dx:PopupControlContentControl>
         </ContentCollection>
         <ContentStyle>
