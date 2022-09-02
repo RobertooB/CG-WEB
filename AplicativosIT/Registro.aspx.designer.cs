@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Ejemplo
+namespace AplicativosIT
 {
 
 
-    public partial class _Default
+    public partial class Registro
     {
 
         /// <summary>
@@ -33,48 +33,57 @@ namespace Ejemplo
         protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
 
         /// <summary>
-        /// Control tbLogin.
+        /// Control nombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox tbLogin;
+        protected global::DevExpress.Web.ASPxTextBox nombre;
 
         /// <summary>
-        /// Control ASPxTextBox1.
+        /// Control apellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxTextBox1;
+        protected global::DevExpress.Web.ASPxTextBox apellido;
 
         /// <summary>
-        /// Control chbRemember.
+        /// Control correo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox chbRemember;
+        protected global::DevExpress.Web.ASPxTextBox correo;
 
         /// <summary>
-        /// Control btIniciar.
+        /// Control usuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btIniciar;
+        protected global::DevExpress.Web.ASPxTextBox usuario;
 
         /// <summary>
-        /// Control btCancel.
+        /// Control contrasenia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btCancel;
+        protected global::DevExpress.Web.ASPxTextBox contrasenia;
+
+        /// <summary>
+        /// Control repetir.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox repetir;
     }
 }

@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Ejemplo
+namespace AplicativosIT
 {
 
 
-    public partial class _Default
+    public partial class Login
     {
 
         /// <summary>
