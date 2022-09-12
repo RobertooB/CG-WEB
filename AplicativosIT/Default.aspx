@@ -5,7 +5,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">
         function OnCardSelectionChanged() {
-            window.open("https://www.w3schools.com");
+            window.open("https://www.w3schools.com", "New Window", "width=1920, height=1080");
         }
         function ShowLoginWindow() {
             pcLogin.Show();
@@ -24,14 +24,14 @@
             }
         }    </script>
     <div class="jumbotron">
-        <h1>G/Web</h1>
+        <h1>CG/Web</h1>
         <p class="lead">Menú de ambientes de desarrollo CG/Web</p>
     </div>
     <div class="row">
         <div class="col-md-4">
 
             <dx:ASPxCardView ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="CardView" KeyFieldName="id">
-                <ClientSideEvents SelectionChanged="OnCardSelectionChanged" />
+                <ClientSideEvents CardClick="OnCardSelectionChanged" />
                  <SettingsEditing Mode="PopupEditForm">
                     <BatchEditSettings EditMode="Card" />
                 </SettingsEditing>

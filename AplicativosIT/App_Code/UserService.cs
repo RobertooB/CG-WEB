@@ -17,6 +17,7 @@ namespace AplicativosIT.App_Code
         static HttpContext Context { get { return HttpContext.Current; } }
         static readonly TimeSpan ActivityWatchingInterval = TimeSpan.FromMinutes(1);
         DataService DataService { get { return DocumentsApp.Data; } }
+        DocumentService DocumentService { get { return DocumentsApp.Document; } }
 
         ConcurrentDictionary<string, DateTime> ActivityRegistry { get; set; }
 
@@ -140,5 +141,4 @@ namespace AplicativosIT.App_Code
             }
         }
     }
-
 }

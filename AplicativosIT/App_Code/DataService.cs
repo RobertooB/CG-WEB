@@ -271,7 +271,7 @@ namespace AplicativosIT.App_Code
             var binaryContentConfig = modelBuilder.Entity<BinaryContent>();
             binaryContentConfig.HasKey(bc => bc.Id);
 
-            DemoUtils.IgnoreDemoClasses(modelBuilder);
+            //DemoUtils.IgnoreDemoClasses(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }
