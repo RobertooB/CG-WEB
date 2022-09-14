@@ -48,6 +48,9 @@ namespace AplicativosIT
 
         }
 
+        protected void DetailsView2_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
+        {
 
+        }
     }
 }

@@ -23,14 +23,15 @@
                 DXUploadedFilesContainer.AddFile(fileName, fileUrl, fileSize);
             }
         }    </script>
+    <link href="./Styles/DefaultStyles.css" rel="stylesheet" type="text/css" />
     <div class="jumbotron">
-        <h1>CG/Web</h1>
+        <h1 class="title">CG/Web</h1>
         <p class="lead">Menú de ambientes de desarrollo CG/Web</p>
     </div>
     <div class="row">
         <div class="col-md-4">
 
-            <dx:ASPxCardView ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="CardView" KeyFieldName="id">
+            <dx:ASPxCardView ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="CardView" KeyFieldName="id" EnableTheming="True" Theme="MetropolisBlue">
                 <ClientSideEvents CardClick="OnCardSelectionChanged" />
                  <SettingsEditing Mode="PopupEditForm">
                     <BatchEditSettings EditMode="Card" />
@@ -43,15 +44,13 @@
                 <SettingsExport ExportSelectedCardsOnly="False"></SettingsExport>
 
                 <Columns>
-                    <dx:CardViewTextColumn FieldName="logo" VisibleIndex="0" Visible="False">
+                    <dx:CardViewTextColumn FieldName="logo" VisibleIndex="1" Caption=" ">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewImageColumn FieldName="url" VisibleIndex="1">
-                        <PropertiesImage ImageHeight="150px" ImageWidth="150px">
-                        </PropertiesImage>
+                    <dx:CardViewImageColumn FieldName="url" VisibleIndex="0" Caption=" ">
                     </dx:CardViewImageColumn>
-                    <dx:CardViewTextColumn FieldName="name_envioronment" VisibleIndex="2">
+                    <dx:CardViewTextColumn FieldName="name_envioronment" VisibleIndex="2" Caption=" ">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="id" ReadOnly="True" Visible="False">
+                    <dx:CardViewTextColumn FieldName="id" ReadOnly="True" Visible="False" Caption=" ">
                     </dx:CardViewTextColumn>
                 </Columns>
 
@@ -65,7 +64,7 @@
                     <Tab BorderSize="1"></Tab>
                 </StylesExport>
             </dx:ASPxCardView>
-            <asp:SqlDataSource ID="CardView" runat="server" ConnectionString="<%$ ConnectionStrings:proyectConnectionString %>" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([logo], [url], [name_envioronment]) VALUES (@logo, @url, @name_envioronment)" SelectCommand="SELECT [logo], [url], [name_envioronment], [id] FROM [info_environment]" UpdateCommand="UPDATE [info_environment] SET [logo] = @logo, [url] = @url, [name_envioronment] = @name_envioronment WHERE [id] = @id">
+            <asp:SqlDataSource ID="CardView" runat="server" ConnectionString="<%$ ConnectionStrings:Projectestasi %>" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([logo], [url], [name_envioronment]) VALUES (@logo, @url, @name_envioronment)" SelectCommand="SELECT [logo], [url], [name_envioronment], [id] FROM [info_environment]" UpdateCommand="UPDATE [info_environment] SET [logo] = @logo, [url] = @url, [name_envioronment] = @name_envioronment WHERE [id] = @id">
                 <DeleteParameters>
                     <asp:Parameter Name="id" Type="Int32" />
                 </DeleteParameters>
@@ -112,29 +111,37 @@
         </div>
     </div>
     <div style="margin: 16px auto; width: 160px;">
-        <dx:ASPxButton ID="btShowModal" runat="server" Text="Show Modal Window" AutoPostBack="False" UseSubmitBehavior="false" Width="100%">
+        <dx:ASPxButton ID="btShowModal" runat="server" Text="Show Modal Window" AutoPostBack="False" UseSubmitBehavior="false" Width="100%" Theme="iOS">
             <ClientSideEvents Click="function(s, e) { ShowLoginWindow(); }" />
         </dx:ASPxButton>
     </div>
-    <dx:ASPxPopupControl ID="pcLogin" runat="server" Width="750px" CloseAction="CloseButton" CloseOnEscape="true" Modal="True"
+    <dx:ASPxPopupControl ID="pcLogin" runat="server" Width="847px" CloseAction="CloseButton" CloseOnEscape="true" Modal="True"
         PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcLogin"
-        HeaderText="Agregar" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="true" Theme="Material" ScrollBars="Vertical">
+        HeaderText="Agregar" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="true" Theme="Material" Height="311px">
         <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('entryGroup'); tbLogin.Focus(); }" />
         <ContentStyle>
             <Paddings PaddingBottom="5px" />
         </ContentStyle>
         <ContentCollection>
             <dx:PopupControlContentControl runat="server">
-                <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="Entorno" Height="50px" Width="100%" DataKeyNames="id">
+                <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="Entorno" Height="50px" Width="100%" DataKeyNames="id" CellPadding="5" CellSpacing="10" ForeColor="#333333" GridLines="None">
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                    <EditRowStyle BackColor="#999999" />
+                    <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" Width="60%" />
                     <Fields>
-                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" Visible="False" />
                         <asp:BoundField DataField="name_envioronment" HeaderText="name_envioronment" SortExpression="name_envioronment" />
                         <asp:BoundField DataField="logo" HeaderText="logo" SortExpression="logo" />
                         <asp:BoundField DataField="url" HeaderText="url" SortExpression="url" />
                         <asp:BoundField DataField="number_module" HeaderText="number_module" SortExpression="number_module" />
                     </Fields>
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                 </asp:DetailsView>
-                <asp:SqlDataSource ID="Entorno" runat="server" ConnectionString="<%$ ConnectionStrings:proyectConnectionString %>" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_envioronment], [logo], [url], [number_module]) VALUES (@name_envioronment, @logo, @url, @number_module)" SelectCommand="SELECT [id], [name_envioronment], [logo], [url], [number_module] FROM [info_environment]" UpdateCommand="UPDATE [info_environment] SET [name_envioronment] = @name_envioronment, [logo] = @logo, [url] = @url, [number_module] = @number_module WHERE [id] = @id">
+                <asp:SqlDataSource ID="Entorno" runat="server" ConnectionString="<%$ ConnectionStrings:Projectestasi %>" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_envioronment], [logo], [url], [number_module]) VALUES (@name_envioronment, @logo, @url, @number_module)" SelectCommand="SELECT [id], [name_envioronment], [logo], [url], [number_module] FROM [info_environment]" UpdateCommand="UPDATE [info_environment] SET [name_envioronment] = @name_envioronment, [logo] = @logo, [url] = @url, [number_module] = @number_module WHERE [id] = @id">
                     <DeleteParameters>
                         <asp:Parameter Name="id" Type="Int32" />
                     </DeleteParameters>
@@ -152,22 +159,38 @@
                         <asp:Parameter Name="id" Type="Int32" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
-                <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="BDD" Height="50px" Width="721px">
+                <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="BDD" Height="50px" Width="100%" CellPadding="4" CellSpacing="10" ForeColor="#333333" GridLines="None" OnPageIndexChanging="DetailsView2_PageIndexChanging">
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                    <EditRowStyle BackColor="#999999" />
+                    <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" Width="60%" />
                     <Fields>
-                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" Visible="False" />
                         <asp:BoundField DataField="ip_server" HeaderText="ip_server" SortExpression="ip_server" />
                         <asp:BoundField DataField="ip_database" HeaderText="ip_database" SortExpression="ip_database" />
                     </Fields>
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                 </asp:DetailsView>
-                <asp:SqlDataSource ID="BDD" runat="server" ConnectionString="<%$ ConnectionStrings:proyectConnectionString %>" SelectCommand="SELECT [id], [ip_server], [ip_database] FROM [info_db]"></asp:SqlDataSource>
-                <asp:DetailsView ID="DetailsView3" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="Modulo" Height="50px" Width="722px">
+                <asp:SqlDataSource ID="BDD" runat="server" ConnectionString="<%$ ConnectionStrings:Projectestasi %>" SelectCommand="SELECT [id], [ip_server], [ip_database] FROM [info_db]"></asp:SqlDataSource>
+                <asp:DetailsView ID="DetailsView3" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="Modulo" Height="50px" Width="100%" CellPadding="4" CellSpacing="10" ForeColor="#333333" GridLines="None">
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                    <EditRowStyle BackColor="#999999" />
+                    <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" Width="60%" />
                     <Fields>
-                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" Visible="False" />
                         <asp:BoundField DataField="module" HeaderText="module" SortExpression="module" />
                         <asp:BoundField DataField="name_database" HeaderText="name_database" SortExpression="name_database" />
                     </Fields>
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                 </asp:DetailsView>
-                <asp:SqlDataSource ID="Modulo" runat="server" ConnectionString="<%$ ConnectionStrings:proyectConnectionString %>" SelectCommand="SELECT * FROM [info_module]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="Modulo" runat="server" ConnectionString="<%$ ConnectionStrings:Projectestasi %>" SelectCommand="SELECT * FROM [info_module]"></asp:SqlDataSource>
                 <asp:SqlDataSource ID="project" runat="server" ConnectionString="<%$ ConnectionStrings:projectConnectionString %>" SelectCommand="SELECT [logo], [name_envioronment], [url], [number_module] FROM [info_environment]"></asp:SqlDataSource>
             </dx:PopupControlContentControl>
         </ContentCollection>
