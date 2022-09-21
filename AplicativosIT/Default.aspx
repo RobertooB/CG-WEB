@@ -4,8 +4,15 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">
-        function OnCardSelectionChanged() {
-            window.open("https://www.w3schools.com", "New Window", "width=1920, height=1080");
+        function OnCardSelectionChanged(s, e) {
+            s.GetSelectedFieldValues("name_environment;url;ip_server", GetSelectedFieldValuesCallback);
+        }
+        function GetSelectedFieldValuesCallback(values) {
+                for (var i = 0; i < values.length; i++) {
+                    let url = values[0][1];
+                    window.open(url, "New Window", "width=1920, height=1080");
+                    document.location.reload();
+            };
         }
         function ShowLoginWindow() {
             pcLogin.Show();
@@ -31,7 +38,7 @@
     <div class="row">
         <div class="col-md-4">
 
-            <dx:ASPxCardView ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="CardView" KeyFieldName="id" EnableTheming="True" Theme="MetropolisBlue">
+            <dx:ASPxCardView ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="CardView1" KeyFieldName="id" EnableTheming="True" Theme="MetropolisBlue">
                 <ClientSideEvents CardClick="OnCardSelectionChanged" />
                  <SettingsEditing Mode="PopupEditForm">
                     <BatchEditSettings EditMode="Card" />
@@ -44,15 +51,133 @@
                 <SettingsExport ExportSelectedCardsOnly="False"></SettingsExport>
 
                 <Columns>
-                    <dx:CardViewTextColumn FieldName="logo" VisibleIndex="1" Caption=" ">
+                    <dx:CardViewTextColumn FieldName="id" ReadOnly="True" Visible="False">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewImageColumn FieldName="url" VisibleIndex="0" Caption=" ">
-                    </dx:CardViewImageColumn>
-                    <dx:CardViewTextColumn FieldName="name_envioronment" VisibleIndex="2" Caption=" ">
+                    <dx:CardViewTextColumn FieldName="name_environment" VisibleIndex="0" Caption=" ">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="id" ReadOnly="True" Visible="False" Caption=" ">
+                    <dx:CardViewTextColumn FieldName="url" VisibleIndex="2">
+                        <PropertiesTextEdit>
+                            <Style Font-Bold="False" Font-Italic="False">
+                            </Style>
+                        </PropertiesTextEdit>
+                        <BatchEditModifiedCellStyle Font-Bold="False" Font-Italic="False" ForeColor="Black">
+                        </BatchEditModifiedCellStyle>
                     </dx:CardViewTextColumn>
+                    <dx:CardViewTextColumn FieldName="ip_server" VisibleIndex="3">
+                    </dx:CardViewTextColumn>
+                    <dx:CardViewTextColumn FieldName="ip_database" VisibleIndex="4">
+                    </dx:CardViewTextColumn>
+                    <dx:CardViewTextColumn FieldName="management_db" VisibleIndex="5">
+                    </dx:CardViewTextColumn>
+                    <dx:CardViewTextColumn FieldName="version_db" VisibleIndex="6">
+                    </dx:CardViewTextColumn>
+                    <dx:CardViewTextColumn FieldName="number_module" VisibleIndex="7">
+                    </dx:CardViewTextColumn>
+                    <dx:CardViewTextColumn FieldName="name_module" VisibleIndex="8">
+                    </dx:CardViewTextColumn>
+                    <dx:CardViewTextColumn FieldName="name_database" VisibleIndex="9">
+                    </dx:CardViewTextColumn>
+                    <dx:CardViewBinaryImageColumn FieldName="logo" VisibleIndex="1" Caption=" ">
+                        <%--<PropertiesImage ImageHeight="150px" ImageWidth="150px">
+                        </PropertiesImage>--%>
+                        <PropertiesBinaryImage ImageHeight="175px" ImageWidth="200px">
+                            <EditingSettings Enabled="true" UploadSettings-UploadValidationSettings-MaxFileSize="4194304" >
+                            </EditingSettings>
+                        </PropertiesBinaryImage>
+                    </dx:CardViewBinaryImageColumn>
                 </Columns>
+
+                <EditFormLayoutProperties>
+                    <Items>
+                        <dx:CardViewCommandLayoutItem ColSpan="1" HorizontalAlign="Right">
+                        </dx:CardViewCommandLayoutItem>
+                        <dx:CardViewColumnLayoutItem Caption="name_environment" ColSpan="1" ColumnName="name_environment">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem Caption="logo" ColSpan="1" ColumnName="logo">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="url">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="ip_server">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="ip_database">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="management_db">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="version_db">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="number_module">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="name_module">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="name_database">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:EditModeCommandLayoutItem ColSpan="1" HorizontalAlign="Right">
+                        </dx:EditModeCommandLayoutItem>
+                    </Items>
+                </EditFormLayoutProperties>
+
+                <CardLayoutProperties>
+                    <Items>
+                        <dx:CardViewCommandLayoutItem ColSpan="1" HorizontalAlign="Right" ShowEditButton="True" ShowDeleteButton="True" ShowNewButton="True">
+                        </dx:CardViewCommandLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="name_environment">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="logo">
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="url" Visible="False">
+                            <Paddings Padding="2px" />
+                            <CaptionStyle ForeColor="White">
+                            </CaptionStyle>
+                            <ParentContainerStyle ForeColor="White">
+                            </ParentContainerStyle>
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="ip_server" Visible="False">
+                            <Paddings Padding="2px" />
+                            <CaptionStyle ForeColor="White">
+                            </CaptionStyle>
+                            <ParentContainerStyle ForeColor="White">
+                            </ParentContainerStyle>
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="ip_database" Visible="False">
+                            <CaptionStyle ForeColor="White">
+                            </CaptionStyle>
+                            <ParentContainerStyle ForeColor="White">
+                            </ParentContainerStyle>
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="management_db" Visible="False">
+                            <CaptionStyle ForeColor="White">
+                            </CaptionStyle>
+                            <ParentContainerStyle ForeColor="White">
+                            </ParentContainerStyle>
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="version_db" Visible="False">
+                            <CaptionStyle ForeColor="White">
+                            </CaptionStyle>
+                            <ParentContainerStyle ForeColor="White">
+                            </ParentContainerStyle>
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="number_module" Visible="False">
+                            <CaptionStyle ForeColor="White">
+                            </CaptionStyle>
+                            <ParentContainerStyle ForeColor="White">
+                            </ParentContainerStyle>
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="name_module" Visible="False">
+                            <CaptionStyle ForeColor="White">
+                            </CaptionStyle>
+                            <ParentContainerStyle ForeColor="White">
+                            </ParentContainerStyle>
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="name_database" Visible="False">
+                            <CaptionStyle ForeColor="White">
+                            </CaptionStyle>
+                            <ParentContainerStyle ForeColor="White">
+                            </ParentContainerStyle>
+                        </dx:CardViewColumnLayoutItem>
+                        <dx:EditModeCommandLayoutItem ColSpan="1" HorizontalAlign="Right" Visible="False">
+                        </dx:EditModeCommandLayoutItem>
+                    </Items>
+                </CardLayoutProperties>
 
                 <StylesExport>
                     <Card BorderSize="1" BorderSides="All"></Card>
@@ -64,48 +189,34 @@
                     <Tab BorderSize="1"></Tab>
                 </StylesExport>
             </dx:ASPxCardView>
-            <asp:SqlDataSource ID="CardView" runat="server" ConnectionString="<%$ ConnectionStrings:Projectestasi %>" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([logo], [url], [name_envioronment]) VALUES (@logo, @url, @name_envioronment)" SelectCommand="SELECT [logo], [url], [name_envioronment], [id] FROM [info_environment]" UpdateCommand="UPDATE [info_environment] SET [logo] = @logo, [url] = @url, [name_envioronment] = @name_envioronment WHERE [id] = @id">
+            <asp:SqlDataSource ID="CardView1" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto2.2 %>" SelectCommand="SELECT * FROM [info_environment]" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_environment], [logo], [url], [ip_server], [ip_database], [management_db], [version_db], [number_module], [name_module], [name_database]) VALUES (@name_environment, @logo, @url, @ip_server, @ip_database, @management_db, @version_db, @number_module, @name_module, @name_database)" UpdateCommand="UPDATE [info_environment] SET [name_environment] = @name_environment, [logo] = @logo, [url] = @url, [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module, [name_module] = @name_module, [name_database] = @name_database WHERE [id] = @id">
                 <DeleteParameters>
                     <asp:Parameter Name="id" Type="Int32" />
                 </DeleteParameters>
                 <InsertParameters>
-                    <asp:Parameter Name="logo" Type="String" />
+                    <asp:Parameter Name="name_environment" Type="String" />
+                    <asp:Parameter Name="logo" DbType="Binary" />
                     <asp:Parameter Name="url" Type="String" />
-                    <asp:Parameter Name="name_envioronment" Type="String" />
+                    <asp:Parameter Name="ip_server" Type="String" />
+                    <asp:Parameter Name="ip_database" Type="String" />
+                    <asp:Parameter Name="management_db" Type="String" />
+                    <asp:Parameter Name="version_db" Type="String" />
+                    <asp:Parameter Name="number_module" Type="Int32" />
+                    <asp:Parameter Name="name_module" Type="String" />
+                    <asp:Parameter Name="name_database" Type="String" />
                 </InsertParameters>
                 <UpdateParameters>
-                    <asp:Parameter Name="logo" Type="String" />
+                    <asp:Parameter Name="name_environment" Type="String" />
+                    <asp:Parameter Name="logo" DbType="Binary" />
                     <asp:Parameter Name="url" Type="String" />
-                    <asp:Parameter Name="name_envioronment" Type="String" />
+                    <asp:Parameter Name="ip_server" Type="String" />
+                    <asp:Parameter Name="ip_database" Type="String" />
+                    <asp:Parameter Name="management_db" Type="String" />
+                    <asp:Parameter Name="version_db" Type="String" />
+                    <asp:Parameter Name="number_module" Type="Int32" />
+                    <asp:Parameter Name="name_module" Type="String" />
+                    <asp:Parameter Name="name_database" Type="String" />
                     <asp:Parameter Name="id" Type="Int32" />
-                </UpdateParameters>
-            </asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:projectConnectionString %>" SelectCommand="SELECT [url], [logo], [name_envioronment] FROM [info_environment]"></asp:SqlDataSource>
-            <br />
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:documentsConnectionString2 %>" DeleteCommand="DELETE FROM [Users] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Users] ([AccountName], [Password]) VALUES (@AccountName, @Password)" SelectCommand="SELECT * FROM [Users]" UpdateCommand="UPDATE [Users] SET [AccountName] = @AccountName, [Password] = @Password WHERE [Id] = @Id">
-                <DeleteParameters>
-                    <asp:Parameter Name="Id" Type="Int32" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="AccountName" Type="String" />
-                    <asp:Parameter Name="Password" Type="String" />
-                </InsertParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="AccountName" Type="String" />
-                    <asp:Parameter Name="Password" Type="String" />
-                    <asp:Parameter Name="Id" Type="Int32" />
-                </UpdateParameters>
-            </asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:documentsConnectionString %>" DeleteCommand="DELETE FROM [Users] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Users] ([Password]) VALUES (@Password)" SelectCommand="SELECT [Id], [Password] FROM [Users]" UpdateCommand="UPDATE [Users] SET [Password] = @Password,  WHERE [Id] = @Id">
-                <DeleteParameters>
-                    <asp:Parameter Name="Id" Type="Int64" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="Password" Type="String" />
-                </InsertParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="Password" Type="String" />
-                    <asp:Parameter Name="Id" Type="Int64" />
                 </UpdateParameters>
             </asp:SqlDataSource>
         </div>
@@ -130,68 +241,39 @@
                     <EditRowStyle BackColor="#999999" />
                     <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" Width="60%" />
                     <Fields>
-                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" Visible="False" />
-                        <asp:BoundField DataField="name_envioronment" HeaderText="name_envioronment" SortExpression="name_envioronment" />
-                        <asp:BoundField DataField="logo" HeaderText="logo" SortExpression="logo" />
-                        <asp:BoundField DataField="url" HeaderText="url" SortExpression="url" />
+                        <asp:BoundField DataField="ip_server" HeaderText="ip_server" SortExpression="ip_server" />
+                        <asp:BoundField DataField="ip_database" HeaderText="ip_database" SortExpression="ip_database" />
+                        <asp:BoundField DataField="gestor" HeaderText="gestor" SortExpression="gestor" />
+                        <asp:BoundField DataField="version" HeaderText="version" SortExpression="version" />
                         <asp:BoundField DataField="number_module" HeaderText="number_module" SortExpression="number_module" />
+                        <asp:BoundField DataField="module" HeaderText="module" SortExpression="module" />
+                        <asp:BoundField DataField="name_database" HeaderText="name_database" SortExpression="name_database" />
+                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" Visible="False" />
                     </Fields>
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
                     <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                 </asp:DetailsView>
-                <asp:SqlDataSource ID="Entorno" runat="server" ConnectionString="<%$ ConnectionStrings:Projectestasi %>" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_envioronment], [logo], [url], [number_module]) VALUES (@name_envioronment, @logo, @url, @number_module)" SelectCommand="SELECT [id], [name_envioronment], [logo], [url], [number_module] FROM [info_environment]" UpdateCommand="UPDATE [info_environment] SET [name_envioronment] = @name_envioronment, [logo] = @logo, [url] = @url, [number_module] = @number_module WHERE [id] = @id">
+                <asp:SqlDataSource ID="Entorno" runat="server" ConnectionString="<%$ ConnectionStrings:proyectoMio %>" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_envioronment], [logo], [url], [number_module]) VALUES (@name_envioronment, @logo, @url, @number_module)" SelectCommand="SELECT info_db.ip_server, info_db.ip_database, catalogue2.value_catalogue AS gestor, catalogue3.value_catalogue AS version, info_environment.number_module, info_module.module, info_module.name_database, info_environment.id FROM info_db INNER JOIN catalogue AS catalogue2 ON catalogue2.id = info_db.fk_manager_db INNER JOIN catalogue AS catalogue3 ON catalogue3.id = info_db.fk_version_db INNER JOIN info_environment ON info_environment.fk_info_db = info_db.id INNER JOIN info_module
+ON info_environment.fk_info_module = info_module.id" UpdateCommand="UPDATE [info_environment] SET [name_envioronment] = @name_envioronment, [logo] = @logo, [url] = @url, [number_module] = @number_module WHERE [id] = @id">
                     <DeleteParameters>
                         <asp:Parameter Name="id" Type="Int32" />
                     </DeleteParameters>
                     <InsertParameters>
                         <asp:Parameter Name="name_envioronment" Type="String" />
-                        <asp:Parameter Name="logo" Type="String" />
+                        <asp:Parameter Name="logo" dbtype="Binary" />
                         <asp:Parameter Name="url" Type="String" />
                         <asp:Parameter Name="number_module" Type="Int32" />
                     </InsertParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="name_envioronment" Type="String" />
-                        <asp:Parameter Name="logo" Type="String" />
+                        <asp:Parameter Name="logo" dbtype="Binary" />
                         <asp:Parameter Name="url" Type="String" />
                         <asp:Parameter Name="number_module" Type="Int32" />
                         <asp:Parameter Name="id" Type="Int32" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
-                <asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="BDD" Height="50px" Width="100%" CellPadding="4" CellSpacing="10" ForeColor="#333333" GridLines="None" OnPageIndexChanging="DetailsView2_PageIndexChanging">
-                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                    <EditRowStyle BackColor="#999999" />
-                    <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" Width="60%" />
-                    <Fields>
-                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" Visible="False" />
-                        <asp:BoundField DataField="ip_server" HeaderText="ip_server" SortExpression="ip_server" />
-                        <asp:BoundField DataField="ip_database" HeaderText="ip_database" SortExpression="ip_database" />
-                    </Fields>
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                </asp:DetailsView>
-                <asp:SqlDataSource ID="BDD" runat="server" ConnectionString="<%$ ConnectionStrings:Projectestasi %>" SelectCommand="SELECT [id], [ip_server], [ip_database] FROM [info_db]"></asp:SqlDataSource>
-                <asp:DetailsView ID="DetailsView3" runat="server" AutoGenerateRows="False" DataKeyNames="id" DataSourceID="Modulo" Height="50px" Width="100%" CellPadding="4" CellSpacing="10" ForeColor="#333333" GridLines="None">
-                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                    <EditRowStyle BackColor="#999999" />
-                    <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" Width="60%" />
-                    <Fields>
-                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" Visible="False" />
-                        <asp:BoundField DataField="module" HeaderText="module" SortExpression="module" />
-                        <asp:BoundField DataField="name_database" HeaderText="name_database" SortExpression="name_database" />
-                    </Fields>
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                </asp:DetailsView>
-                <asp:SqlDataSource ID="Modulo" runat="server" ConnectionString="<%$ ConnectionStrings:Projectestasi %>" SelectCommand="SELECT * FROM [info_module]"></asp:SqlDataSource>
-                <asp:SqlDataSource ID="project" runat="server" ConnectionString="<%$ ConnectionStrings:projectConnectionString %>" SelectCommand="SELECT [logo], [name_envioronment], [url], [number_module] FROM [info_environment]"></asp:SqlDataSource>
             </dx:PopupControlContentControl>
         </ContentCollection>
     </dx:ASPxPopupControl>
