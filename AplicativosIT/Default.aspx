@@ -56,28 +56,52 @@
                 <SettingsExport ExportSelectedCardsOnly="False"></SettingsExport>
 
                 <Columns>
-                    <dx:CardViewTextColumn FieldName="id" ReadOnly="True" Visible="False">
+                    <dx:CardViewTextColumn FieldName="id" ReadOnly="True" Visible="False" ShowInCustomizationForm="True">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="name_environment" VisibleIndex="0">
+                    <dx:CardViewTextColumn FieldName="name_environment" VisibleIndex="0" Caption=" " ShowInCustomizationForm="True">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="logo" VisibleIndex="1">
+                    <dx:CardViewTextColumn FieldName="url" VisibleIndex="2" ShowInCustomizationForm="True">
+                        <PropertiesTextEdit>
+                            <ValidationSettings>
+                                <RegularExpression ErrorText="La expresion debe de ser de tipo URL" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?" />
+                            </ValidationSettings>
+                        </PropertiesTextEdit>
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="url" VisibleIndex="2">
+                    <dx:CardViewTextColumn FieldName="ip_server" VisibleIndex="3" ShowInCustomizationForm="True">
+                        <PropertiesTextEdit>
+                            <ValidationSettings>
+                                <RegularExpression ErrorText="La IP debe de ser 255.255.255.255 u otro formato valido." ValidationExpression="^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" />
+                            </ValidationSettings>
+                        </PropertiesTextEdit>
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="ip_server" VisibleIndex="3">
+                    <dx:CardViewTextColumn FieldName="ip_database" VisibleIndex="4" ShowInCustomizationForm="True">
+                        <PropertiesTextEdit>
+                            <ValidationSettings>
+                                <RegularExpression ErrorText="La IP debe de ser 255.255.255.255 u otro formato valido." ValidationExpression="^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" />
+                            </ValidationSettings>
+                        </PropertiesTextEdit>
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="ip_database" VisibleIndex="4">
+                    <dx:CardViewTextColumn FieldName="management_db" VisibleIndex="5" ShowInCustomizationForm="True">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="management_db" VisibleIndex="5">
+                    <dx:CardViewTextColumn FieldName="version_db" VisibleIndex="6" ShowInCustomizationForm="True">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="version_db" VisibleIndex="6">
+                    <dx:CardViewTextColumn FieldName="number_module" VisibleIndex="7" ShowInCustomizationForm="True">
+                        <PropertiesTextEdit>
+                            <ValidationSettings>
+                                <RegularExpression ErrorText="Solo se aceptan numeros" ValidationExpression="\d+" />
+                            </ValidationSettings>
+                        </PropertiesTextEdit>
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="number_module" VisibleIndex="7">
+                    <dx:CardViewTextColumn FieldName="name_module" VisibleIndex="8" ShowInCustomizationForm="True">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="name_module" VisibleIndex="8">
+                    <dx:CardViewTextColumn FieldName="name_database" VisibleIndex="9" ShowInCustomizationForm="True">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="name_database" VisibleIndex="9">
-                    </dx:CardViewTextColumn>
+                    <dx:CardViewBinaryImageColumn FieldName="logo" VisibleIndex="1" Caption=" ">
+                        <PropertiesBinaryImage ImageHeight="250px" ImageWidth="250px">
+                            <EditingSettings Enabled="True">
+                            </EditingSettings>
+                        </PropertiesBinaryImage>
+                    </dx:CardViewBinaryImageColumn>
                 </Columns>
 
                 <EditFormLayoutProperties>
@@ -182,13 +206,13 @@
                     <Tab BorderSize="1"></Tab>
                 </StylesExport>
             </dx:ASPxCardView>
-            <asp:SqlDataSource ID="CardView1" runat="server" ConnectionString="<%$ ConnectionStrings:project2.0 %>" SelectCommand="SELECT * FROM [info_environment]" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_environment], [logo], [url], [ip_server], [ip_database], [management_db], [version_db], [number_module], [name_module], [name_database]) VALUES (@name_environment, @logo, @url, @ip_server, @ip_database, @management_db, @version_db, @number_module, @name_module, @name_database)" UpdateCommand="UPDATE [info_environment] SET [name_environment] = @name_environment, [logo] = @logo, [url] = @url, [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module, [name_module] = @name_module, [name_database] = @name_database WHERE [id] = @id">
+            <asp:SqlDataSource ID="CardView1" runat="server" ConnectionString="<%$ ConnectionStrings:proyecto_ahora_si %>" SelectCommand="SELECT * FROM [info_environment]" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_environment], [logo], [url], [ip_server], [ip_database], [management_db], [version_db], [number_module], [name_module], [name_database]) VALUES (@name_environment, @logo, @url, @ip_server, @ip_database, @management_db, @version_db, @number_module, @name_module, @name_database)" UpdateCommand="UPDATE [info_environment] SET [name_environment] = @name_environment, [logo] = @logo, [url] = @url, [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module, [name_module] = @name_module, [name_database] = @name_database WHERE [id] = @id">
                 <DeleteParameters>
                     <asp:Parameter Name="id" Type="Int32" />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="name_environment" Type="String" />
-                    <asp:Parameter Name="logo" Type="String" />
+                    <asp:Parameter Name="logo" DbType="Binary"/>
                     <asp:Parameter Name="url" Type="String" />
                     <asp:Parameter Name="ip_server" Type="String" />
                     <asp:Parameter Name="ip_database" Type="String" />
@@ -200,7 +224,7 @@
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="name_environment" Type="String" />
-                    <asp:Parameter Name="logo" Type="String" />
+                    <asp:Parameter Name="logo" DbType="Binary"/>
                     <asp:Parameter Name="url" Type="String" />
                     <asp:Parameter Name="ip_server" Type="String" />
                     <asp:Parameter Name="ip_database" Type="String" />
@@ -214,60 +238,4 @@
             </asp:SqlDataSource>
         </div>
     </div>
-    <div style="margin: 16px auto; width: 160px;">
-        <dx:ASPxButton ID="btShowModal" runat="server" Text="Show Modal Window" AutoPostBack="False" UseSubmitBehavior="false" Width="100%" Theme="iOS">
-            <ClientSideEvents Click="function(s, e) { ShowLoginWindow(); }" />
-        </dx:ASPxButton>
-    </div>
-    <dx:ASPxPopupControl ID="pcLogin" runat="server" Width="847px" CloseAction="CloseButton" CloseOnEscape="True" Modal="True"
-        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcLogin"
-        HeaderText="Agregar" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="True" Theme="Material" Height="311px">
-        <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('entryGroup'); tbLogin.Focus(); }" />
-        <ContentStyle>
-            <Paddings PaddingBottom="5px" />
-        </ContentStyle>
-        <ContentCollection>
-            <dx:PopupControlContentControl runat="server">
-                <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" Height="50px" Width="100%" DataKeyNames="id" CellPadding="5" CellSpacing="10" ForeColor="#333333" GridLines="None">
-                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
-                    <EditRowStyle BackColor="#999999" />
-                    <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" Width="60%" />
-                    <Fields>
-                        <asp:BoundField DataField="ip_server" HeaderText="ip_server" SortExpression="ip_server" />
-                        <asp:BoundField DataField="ip_database" HeaderText="ip_database" SortExpression="ip_database" />
-                        <asp:BoundField DataField="gestor" HeaderText="gestor" SortExpression="gestor" />
-                        <asp:BoundField DataField="version" HeaderText="version" SortExpression="version" />
-                        <asp:BoundField DataField="number_module" HeaderText="number_module" SortExpression="number_module" />
-                        <asp:BoundField DataField="module" HeaderText="module" SortExpression="module" />
-                        <asp:BoundField DataField="name_database" HeaderText="name_database" SortExpression="name_database" />
-                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" Visible="False" />
-                    </Fields>
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                </asp:DetailsView>
-                <asp:SqlDataSource ID="Entorno" runat="server" ConnectionString="<%$ ConnectionStrings:proyectoMio %>" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_envioronment], [logo], [url], [number_module]) VALUES (@name_envioronment, @logo, @url, @number_module)" SelectCommand="SELECT info_db.ip_server, info_db.ip_database, catalogue2.value_catalogue AS gestor, catalogue3.value_catalogue AS version, info_environment.number_module, info_module.module, info_module.name_database, info_environment.id FROM info_db INNER JOIN catalogue AS catalogue2 ON catalogue2.id = info_db.fk_manager_db INNER JOIN catalogue AS catalogue3 ON catalogue3.id = info_db.fk_version_db INNER JOIN info_environment ON info_environment.fk_info_db = info_db.id INNER JOIN info_module
-ON info_environment.fk_info_module = info_module.id" UpdateCommand="UPDATE [info_environment] SET [name_envioronment] = @name_envioronment, [logo] = @logo, [url] = @url, [number_module] = @number_module WHERE [id] = @id">
-                    <DeleteParameters>
-                        <asp:Parameter Name="id" Type="Int32" />
-                    </DeleteParameters>
-                    <InsertParameters>
-                        <asp:Parameter Name="name_envioronment" Type="String" />
-                        <asp:Parameter Name="logo" dbtype="Binary" />
-                        <asp:Parameter Name="url" Type="String" />
-                        <asp:Parameter Name="number_module" Type="Int32" />
-                    </InsertParameters>
-                    <UpdateParameters>
-                        <asp:Parameter Name="name_envioronment" Type="String" />
-                        <asp:Parameter Name="logo" dbtype="Binary" />
-                        <asp:Parameter Name="url" Type="String" />
-                        <asp:Parameter Name="number_module" Type="Int32" />
-                        <asp:Parameter Name="id" Type="Int32" />
-                    </UpdateParameters>
-                </asp:SqlDataSource>
-            </dx:PopupControlContentControl>
-        </ContentCollection>
-    </dx:ASPxPopupControl>
     </asp:Content>
