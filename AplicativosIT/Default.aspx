@@ -31,14 +31,19 @@
             }
         }    </script>
     <link href="./Styles/DefaultStyles.css" rel="stylesheet" type="text/css" />
-    <div class="jumbotron">
-        <h1 class="title">CG/Web</h1>
-        <p class="lead">Menú de ambientes de desarrollo CG/Web</p>
+    <div class="title-container"  style="
+        margin-bottom: 20px;
+        padding: 15px; background-image:
+  linear-gradient( to bottom, hsl(0, 0%, 100%) 0%, hsl(224.9, 68.8%, 98.72%) 7.5%, hsl(224.77, 69.09%, 97.16%) 14.6%, hsl(224.61, 69.44%, 95.33%) 21.3%, hsl(224.42, 69.84%, 93.24%) 27.7%, hsl(224.18, 70.3%, 90.9%) 33.9%, hsl(223.9, 70.83%, 88.32%) 40%, hsl(223.56, 71.41%, 85.51%) 45.9%, hsl(223.14, 72.07%, 82.46%) 51.9%, hsl(222.64, 72.81%, 79.17%) 57.9%, hsl(222.01, 73.63%, 75.62%) 64.1%, hsl(221.22, 74.55%, 71.78%) 70.5%, hsl(220.19, 75.61%, 67.59%) 77.2%, hsl(218.78, 76.85%, 62.87%) 84.3%, hsl(216.62, 78.44%, 57.18%) 91.9%, hsl(210, 100%, 45.1%) 100% )">
+        <h1 class="title" style="text-align: center;">CG/Web</h1>
+<svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        <p class="lead" style="text-align:center;">Menú de ambientes de desarrollo CG/Web</p>
+
     </div>
+
     <div class="row">
         <div class="col-md-4">
-
-            <dx:ASPxCardView ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="CardView1" KeyFieldName="id" EnableTheming="True" Theme="MetropolisBlue">
+            <dx:ASPxCardView CssClass="card-view" ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="CardView1" KeyFieldName="id" EnableTheming="True" Theme="MetropolisBlue" Width="864px">
                 <ClientSideEvents CardClick="OnCardSelectionChanged" />
                  <SettingsEditing Mode="PopupEditForm">
                     <BatchEditSettings EditMode="Card" />
@@ -53,15 +58,11 @@
                 <Columns>
                     <dx:CardViewTextColumn FieldName="id" ReadOnly="True" Visible="False">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="name_environment" VisibleIndex="0" Caption=" ">
+                    <dx:CardViewTextColumn FieldName="name_environment" VisibleIndex="0">
+                    </dx:CardViewTextColumn>
+                    <dx:CardViewTextColumn FieldName="logo" VisibleIndex="1">
                     </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="url" VisibleIndex="2">
-                        <PropertiesTextEdit>
-                            <Style Font-Bold="False" Font-Italic="False">
-                            </Style>
-                        </PropertiesTextEdit>
-                        <BatchEditModifiedCellStyle Font-Bold="False" Font-Italic="False" ForeColor="Black">
-                        </BatchEditModifiedCellStyle>
                     </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="ip_server" VisibleIndex="3">
                     </dx:CardViewTextColumn>
@@ -77,14 +78,6 @@
                     </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="name_database" VisibleIndex="9">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewBinaryImageColumn FieldName="logo" VisibleIndex="1" Caption=" ">
-                        <%--<PropertiesImage ImageHeight="150px" ImageWidth="150px">
-                        </PropertiesImage>--%>
-                        <PropertiesBinaryImage ImageHeight="175px" ImageWidth="200px">
-                            <EditingSettings Enabled="true" UploadSettings-UploadValidationSettings-MaxFileSize="4194304" >
-                            </EditingSettings>
-                        </PropertiesBinaryImage>
-                    </dx:CardViewBinaryImageColumn>
                 </Columns>
 
                 <EditFormLayoutProperties>
@@ -189,13 +182,13 @@
                     <Tab BorderSize="1"></Tab>
                 </StylesExport>
             </dx:ASPxCardView>
-            <asp:SqlDataSource ID="CardView1" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto2.2 %>" SelectCommand="SELECT * FROM [info_environment]" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_environment], [logo], [url], [ip_server], [ip_database], [management_db], [version_db], [number_module], [name_module], [name_database]) VALUES (@name_environment, @logo, @url, @ip_server, @ip_database, @management_db, @version_db, @number_module, @name_module, @name_database)" UpdateCommand="UPDATE [info_environment] SET [name_environment] = @name_environment, [logo] = @logo, [url] = @url, [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module, [name_module] = @name_module, [name_database] = @name_database WHERE [id] = @id">
+            <asp:SqlDataSource ID="CardView1" runat="server" ConnectionString="<%$ ConnectionStrings:project2.0 %>" SelectCommand="SELECT * FROM [info_environment]" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_environment], [logo], [url], [ip_server], [ip_database], [management_db], [version_db], [number_module], [name_module], [name_database]) VALUES (@name_environment, @logo, @url, @ip_server, @ip_database, @management_db, @version_db, @number_module, @name_module, @name_database)" UpdateCommand="UPDATE [info_environment] SET [name_environment] = @name_environment, [logo] = @logo, [url] = @url, [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module, [name_module] = @name_module, [name_database] = @name_database WHERE [id] = @id">
                 <DeleteParameters>
                     <asp:Parameter Name="id" Type="Int32" />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="name_environment" Type="String" />
-                    <asp:Parameter Name="logo" DbType="Binary" />
+                    <asp:Parameter Name="logo" Type="String" />
                     <asp:Parameter Name="url" Type="String" />
                     <asp:Parameter Name="ip_server" Type="String" />
                     <asp:Parameter Name="ip_database" Type="String" />
@@ -207,7 +200,7 @@
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="name_environment" Type="String" />
-                    <asp:Parameter Name="logo" DbType="Binary" />
+                    <asp:Parameter Name="logo" Type="String" />
                     <asp:Parameter Name="url" Type="String" />
                     <asp:Parameter Name="ip_server" Type="String" />
                     <asp:Parameter Name="ip_database" Type="String" />
@@ -226,16 +219,16 @@
             <ClientSideEvents Click="function(s, e) { ShowLoginWindow(); }" />
         </dx:ASPxButton>
     </div>
-    <dx:ASPxPopupControl ID="pcLogin" runat="server" Width="847px" CloseAction="CloseButton" CloseOnEscape="true" Modal="True"
+    <dx:ASPxPopupControl ID="pcLogin" runat="server" Width="847px" CloseAction="CloseButton" CloseOnEscape="True" Modal="True"
         PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcLogin"
-        HeaderText="Agregar" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="true" Theme="Material" Height="311px">
+        HeaderText="Agregar" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="True" Theme="Material" Height="311px">
         <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('entryGroup'); tbLogin.Focus(); }" />
         <ContentStyle>
             <Paddings PaddingBottom="5px" />
         </ContentStyle>
         <ContentCollection>
             <dx:PopupControlContentControl runat="server">
-                <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="Entorno" Height="50px" Width="100%" DataKeyNames="id" CellPadding="5" CellSpacing="10" ForeColor="#333333" GridLines="None">
+                <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" Height="50px" Width="100%" DataKeyNames="id" CellPadding="5" CellSpacing="10" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
                     <EditRowStyle BackColor="#999999" />
