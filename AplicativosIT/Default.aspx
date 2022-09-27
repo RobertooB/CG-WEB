@@ -81,8 +81,6 @@
                             </ValidationSettings>
                         </PropertiesTextEdit>
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="management_db" VisibleIndex="5" ShowInCustomizationForm="True">
-                    </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="version_db" VisibleIndex="6" ShowInCustomizationForm="True">
                     </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="number_module" VisibleIndex="7" ShowInCustomizationForm="True">
@@ -102,6 +100,10 @@
                             </EditingSettings>
                         </PropertiesBinaryImage>
                     </dx:CardViewBinaryImageColumn>
+                    <dx:CardViewComboBoxColumn FieldName="management_db" VisibleIndex="10">
+                        <PropertiesComboBox DataSourceID="combobox_source" TextField="create_at">
+                        </PropertiesComboBox>
+                    </dx:CardViewComboBoxColumn>
                 </Columns>
 
                 <EditFormLayoutProperties>
@@ -206,13 +208,14 @@
                     <Tab BorderSize="1"></Tab>
                 </StylesExport>
             </dx:ASPxCardView>
+            <asp:SqlDataSource ID="combobox_source" runat="server" ConnectionString="<%$ ConnectionStrings:conexion_combobox %>" SelectCommand="SELECT * FROM [audit]"></asp:SqlDataSource>
             <asp:SqlDataSource ID="CardView1" runat="server" ConnectionString="<%$ ConnectionStrings:proyecto_ahora_si %>" SelectCommand="SELECT * FROM [info_environment]" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_environment], [logo], [url], [ip_server], [ip_database], [management_db], [version_db], [number_module], [name_module], [name_database]) VALUES (@name_environment, @logo, @url, @ip_server, @ip_database, @management_db, @version_db, @number_module, @name_module, @name_database)" UpdateCommand="UPDATE [info_environment] SET [name_environment] = @name_environment, [logo] = @logo, [url] = @url, [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module, [name_module] = @name_module, [name_database] = @name_database WHERE [id] = @id">
                 <DeleteParameters>
                     <asp:Parameter Name="id" Type="Int32" />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="name_environment" Type="String" />
-                    <asp:Parameter Name="logo" DbType="Binary"/>
+                    <asp:Parameter Name="logo"  DbType="Binary"/>
                     <asp:Parameter Name="url" Type="String" />
                     <asp:Parameter Name="ip_server" Type="String" />
                     <asp:Parameter Name="ip_database" Type="String" />
@@ -236,6 +239,227 @@
                     <asp:Parameter Name="id" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+            <div style="margin: 16px auto; width: 160px;">
+        <dx:ASPxButton ID="btShowModal" runat="server" Text="Show Modal Window" AutoPostBack="False" UseSubmitBehavior="false" Width="100%" >
+            <ClientSideEvents Click="function(s, e) { ShowLoginWindow(); }" />
+        </dx:ASPxButton>
+    </div>
+            <dx:ASPxPopupControl ID="pcLogin" runat="server" Width="525px" CloseAction="CloseButton" CloseOnEscape="True" Modal="True"
+        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcLogin"
+        HeaderText="Login" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="True">
+        <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('entryGroup'); tbLogin.Focus(); }" />
+        <ContentCollection>
+            <dx:PopupControlContentControl runat="server">
+                <dx:ASPxPanel ID="Panel1" runat="server" DefaultButton="btOK" Width="489px">
+                    <PanelCollection>
+                        <dx:PanelContent runat="server">
+                            <dx:ASPxCardView ID="ASPxCardView2" runat="server" AutoGenerateColumns="False" DataSourceID="users_source" KeyFieldName="id" Width="456px">
+                                <SettingsPager SettingsTableLayout-RowsPerPage="1" SettingsTableLayout-ColumnCount="1" EnableAdaptivity="true" >
+<SettingsTableLayout ColumnCount="1" RowsPerPage="1"></SettingsTableLayout>
+                                </SettingsPager>
+                                <SettingsPopup>
+                                    <FilterControl AutoUpdatePosition="False">
+                                    </FilterControl>
+                                </SettingsPopup>
+                                <SettingsExport ExportSelectedCardsOnly="False">
+                                </SettingsExport>
+                                <Columns>
+                                    <dx:CardViewTextColumn FieldName="id" ReadOnly="True" ShowInCustomizationForm="True" Visible="False">
+                                    </dx:CardViewTextColumn>
+                                    <dx:CardViewTextColumn FieldName="name_user" ShowInCustomizationForm="True" VisibleIndex="0">
+                                    </dx:CardViewTextColumn>
+                                    <dx:CardViewTextColumn FieldName="password" ShowInCustomizationForm="True" VisibleIndex="1">
+                                    </dx:CardViewTextColumn>
+                                    <dx:CardViewTextColumn FieldName="name" ShowInCustomizationForm="True" VisibleIndex="2">
+                                    </dx:CardViewTextColumn>
+                                    <dx:CardViewTextColumn FieldName="lastname" ShowInCustomizationForm="True" VisibleIndex="3">
+                                    </dx:CardViewTextColumn>
+                                    <dx:CardViewComboBoxColumn Caption="catalogue" FieldName="id_catalogue" ShowInCustomizationForm="True" VisibleIndex="4">
+                                        <PropertiesComboBox DataSourceID="catalogue_source" TextField="name_catalogue" ValueField="id" ValueType="System.Int32">
+                                        </PropertiesComboBox>
+                                    </dx:CardViewComboBoxColumn>
+                                </Columns>
+                                <CardLayoutProperties>
+                                    <Items>
+                                        <dx:CardViewCommandLayoutItem ColSpan="1" HorizontalAlign="Right" ShowDeleteButton="True" ShowEditButton="True" ShowNewButton="True">
+                                        </dx:CardViewCommandLayoutItem>
+                                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="name_user">
+                                        </dx:CardViewColumnLayoutItem>
+                                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="password">
+                                        </dx:CardViewColumnLayoutItem>
+                                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="name">
+                                        </dx:CardViewColumnLayoutItem>
+                                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="lastname">
+                                        </dx:CardViewColumnLayoutItem>
+                                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="catalogue">
+                                        </dx:CardViewColumnLayoutItem>
+                                        <dx:EditModeCommandLayoutItem ColSpan="1" HorizontalAlign="Right">
+                                        </dx:EditModeCommandLayoutItem>
+                                    </Items>
+                                </CardLayoutProperties>
+                                <StylesExport>
+                                    <Card BorderSides="All" BorderSize="1">
+                                    </Card>
+                                    <Group BorderSides="All" BorderSize="1">
+                                    </Group>
+                                    <TabbedGroup BorderSides="All" BorderSize="1">
+                                    </TabbedGroup>
+                                    <Tab BorderSize="1">
+                                    </Tab>
+                                </StylesExport>
+                            </dx:ASPxCardView>
+                            <asp:SqlDataSource ID="catalogue_source" runat="server" ConnectionString="<%$ ConnectionStrings:catalogue_source %>" DeleteCommand="DELETE FROM [catalogue] WHERE [id] = @id" InsertCommand="INSERT INTO [catalogue] ([name_catalogue], [value_catalogue]) VALUES (@name_catalogue, @value_catalogue)" SelectCommand="SELECT * FROM [catalogue]" UpdateCommand="UPDATE [catalogue] SET [name_catalogue] = @name_catalogue, [value_catalogue] = @value_catalogue WHERE [id] = @id">
+                                <DeleteParameters>
+                                    <asp:Parameter Name="id" Type="Int32" />
+                                </DeleteParameters>
+                                <InsertParameters>
+                                    <asp:Parameter Name="name_catalogue" Type="String" />
+                                    <asp:Parameter Name="value_catalogue" Type="String" />
+                                </InsertParameters>
+                                <UpdateParameters>
+                                    <asp:Parameter Name="name_catalogue" Type="String" />
+                                    <asp:Parameter Name="value_catalogue" Type="String" />
+                                    <asp:Parameter Name="id" Type="Int32" />
+                                </UpdateParameters>
+                            </asp:SqlDataSource>
+                            <asp:SqlDataSource ID="users_source" runat="server" ConnectionString="<%$ ConnectionStrings:users_source %>" DeleteCommand="DELETE FROM [users] WHERE [id] = @id" InsertCommand="INSERT INTO [users] ([name_user], [password], [name], [lastname], [id_catalogue]) VALUES (@name_user, @password, @name, @lastname, @id_catalogue)" SelectCommand="SELECT * FROM [users]" UpdateCommand="UPDATE [users] SET [name_user] = @name_user, [password] = @password, [name] = @name, [lastname] = @lastname, [id_catalogue] = @id_catalogue WHERE [id] = @id">
+                                <DeleteParameters>
+                                    <asp:Parameter Name="id" Type="Int32" />
+                                </DeleteParameters>
+                                <InsertParameters>
+                                    <asp:Parameter Name="name_user" Type="String" />
+                                    <asp:Parameter Name="password" Type="String" />
+                                    <asp:Parameter Name="name" Type="String" />
+                                    <asp:Parameter Name="lastname" Type="String" />
+                                    <asp:Parameter Name="id_catalogue" Type="Int32" />
+                                </InsertParameters>
+                                <UpdateParameters>
+                                    <asp:Parameter Name="name_user" Type="String" />
+                                    <asp:Parameter Name="password" Type="String" />
+                                    <asp:Parameter Name="name" Type="String" />
+                                    <asp:Parameter Name="lastname" Type="String" />
+                                    <asp:Parameter Name="id_catalogue" Type="Int32" />
+                                    <asp:Parameter Name="id" Type="Int32" />
+                                </UpdateParameters>
+                            </asp:SqlDataSource>
+                        </dx:PanelContent>
+                    </PanelCollection>
+                </dx:ASPxPanel>
+                <div>
+                    <a href="javascript:ShowCreateAccountWindow();" id="hl1" style="float: right; margin: 14px 0 10px 0;">Create Account</a>
+                </div>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+        <ContentStyle>
+            <Paddings PaddingBottom="5px" />
+        </ContentStyle>
+    </dx:ASPxPopupControl>
+    <dx:ASPxPopupControl ID="pcCreateAccount" runat="server" Width="320" CloseAction="CloseButton" CloseOnEscape="true"
+        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcCreateAccount"
+        HeaderText="Create Account" AllowDragging="True" Modal="True" PopupAnimationType="Fade"
+        EnableViewState="False" PopupHorizontalOffset="40" PopupVerticalOffset="40" AutoUpdatePosition="true">
+        <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('createAccountGroup'); }" />
+        <SizeGripImage Width="11px" />
+        <ContentCollection>
+            <dx:PopupControlContentControl runat="server">
+                <dx:ASPxPanel ID="Panel2" runat="server" DefaultButton="btCreate">
+                    <PanelCollection>
+                        <dx:PanelContent runat="server">
+                            <dx:ASPxFormLayout runat="server" ID="CreateAccountFormLayout" Width="100%" Height="100%">
+                                <Items>
+                                    <dx:LayoutItem Caption="Username">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxTextBox ID="tbUsername" runat="server" Width="150px" ClientInstanceName="tbUsername">
+                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="createAccountGroup"
+                                                        SetFocusOnError="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
+                                                        <RequiredField IsRequired="True" ErrorText="Username is required" />
+                                                        <ErrorFrameStyle Font-Size="10px">
+                                                            <ErrorTextPaddings PaddingLeft="0px" />
+                                                        </ErrorFrameStyle>
+                                                    </ValidationSettings>
+                                                </dx:ASPxTextBox>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+                                    <dx:LayoutItem Caption="Password">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxTextBox ID="tbPass1" runat="server" Width="150px" ClientInstanceName="pass1"
+                                                    Password="True">
+                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="createAccountGroup"
+                                                        SetFocusOnError="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
+                                                        <RequiredField IsRequired="True" ErrorText="Password is required" />
+                                                        <ErrorFrameStyle Font-Size="10px">
+                                                            <ErrorTextPaddings PaddingLeft="0px" />
+                                                        </ErrorFrameStyle>
+                                                    </ValidationSettings>
+                                                </dx:ASPxTextBox>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+                                    <dx:LayoutItem Caption="Confirm password">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxTextBox ID="tbConfPass2" runat="server" Width="150px" ClientInstanceName="pass2"
+                                                    Password="True">
+                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="createAccountGroup"
+                                                        SetFocusOnError="True" ErrorText="Password is incorrect" ErrorDisplayMode="Text"
+                                                        ErrorTextPosition="Bottom">
+                                                        <RequiredField IsRequired="True" ErrorText="Please, confirm your password" />
+                                                        <ErrorFrameStyle Font-Size="10px">
+                                                            <ErrorTextPaddings PaddingLeft="0px" />
+                                                        </ErrorFrameStyle>
+                                                    </ValidationSettings>
+                                                    <ClientSideEvents Validation="function(s, e) { e.isValid = (pass1.GetText()==pass2.GetText()); }" />
+                                                </dx:ASPxTextBox>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+                                    <dx:LayoutItem Caption="Email">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxTextBox ID="tbEmail" runat="server" Width="150px">
+                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="createAccountGroup"
+                                                        SetFocusOnError="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
+                                                        <RequiredField IsRequired="True" ErrorText="E-mail is required" />
+                                                        <RegularExpression ErrorText="Invalid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+                                                        <ErrorFrameStyle Font-Size="10px">
+                                                            <ErrorTextPaddings PaddingLeft="0px" />
+                                                        </ErrorFrameStyle>
+                                                    </ValidationSettings>
+                                                </dx:ASPxTextBox>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+                                    <dx:LayoutItem ShowCaption="False">
+                                        <LayoutItemNestedControlCollection>
+                                            <dx:LayoutItemNestedControlContainer>
+                                                <dx:ASPxButton ID="btCreate" runat="server" Text="OK" Width="80px" AutoPostBack="False" Style="float: left; margin-right: 8px">
+                                                    <ClientSideEvents Click="function(s, e) {
+                                                        if(ASPxClientEdit.ValidateGroup('createAccountGroup')) {
+                                                            ASPxClientEdit.ClearGroup('entryGroup');
+                                                            tbLogin.SetText(tbUsername.GetText());
+                                                            pcCreateAccount.Hide();
+                                                        }
+                                                    }" />
+                                                </dx:ASPxButton>
+                                                <dx:ASPxButton ID="btCancel2" runat="server" Text="Cancel" Width="80px" AutoPostBack="False" Style="float: left; margin-right: 8px">
+                                                    <ClientSideEvents Click="function(s, e) { pcCreateAccount.Hide(); }" />
+                                                </dx:ASPxButton>
+                                            </dx:LayoutItemNestedControlContainer>
+                                        </LayoutItemNestedControlCollection>
+                                    </dx:LayoutItem>
+                                </Items>
+                            </dx:ASPxFormLayout>
+                        </dx:PanelContent>
+                    </PanelCollection>
+                </dx:ASPxPanel>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+    </dx:ASPxPopupControl>
         </div>
     </div>
+    
+    
     </asp:Content>
