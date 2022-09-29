@@ -33,15 +33,6 @@ namespace AplicativosIT
         protected global::DevExpress.Web.ASPxButton ASPxButton4;
 
         /// <summary>
-        /// Control ASPxButton2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton ASPxButton2;
-
-        /// <summary>
         /// Control pcLogin.
         /// </summary>
         /// <remarks>
@@ -78,85 +69,76 @@ namespace AplicativosIT
         protected global::System.Web.UI.WebControls.SqlDataSource Usuarios;
 
         /// <summary>
-        /// Control pcCreateAccount.
+        /// Control ASPxPopupControl1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl pcCreateAccount;
+        protected global::DevExpress.Web.ASPxPopupControl ASPxPopupControl1;
 
         /// <summary>
-        /// Control Panel2.
+        /// Control ASPxPanel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPanel Panel2;
+        protected global::DevExpress.Web.ASPxPanel ASPxPanel1;
 
         /// <summary>
-        /// Control CreateAccountFormLayout.
+        /// Control ASPxFormLayout1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxFormLayout CreateAccountFormLayout;
+        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
 
         /// <summary>
-        /// Control tbUsername.
+        /// Control tbLogin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox tbUsername;
+        protected global::DevExpress.Web.ASPxTextBox tbLogin;
 
         /// <summary>
-        /// Control tbPass1.
+        /// Control tbPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox tbPass1;
+        protected global::DevExpress.Web.ASPxTextBox tbPassword;
 
         /// <summary>
-        /// Control tbConfPass2.
+        /// Control chbRemember.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox tbConfPass2;
+        protected global::DevExpress.Web.ASPxCheckBox chbRemember;
 
         /// <summary>
-        /// Control tbEmail.
+        /// Control btOK.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox tbEmail;
+        protected global::DevExpress.Web.ASPxButton btOK;
 
         /// <summary>
-        /// Control btCreate.
+        /// Control btCancel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btCreate;
-
-        /// <summary>
-        /// Control btCancel2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btCancel2;
+        protected global::DevExpress.Web.ASPxButton btCancel;
 
         /// <summary>
         /// Control ASPxCardView1.

@@ -31,8 +31,9 @@ textarea {
 }
 
 .card-view {
-margin:auto;
-
+    border: none;
+    margin: auto;
+    color: #00FFFF;
 }
 
 .title-container {

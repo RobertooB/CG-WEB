@@ -14,12 +14,11 @@
                     document.location.reload();
             };
         }
+        function ShowUsersWindow() {
+            pcUsuarios.Show();
+        }
         function ShowLoginWindow() {
             pcLogin.Show();
-        }
-        function ShowCreateAccountWindow() {
-            pcCreateAccount.Show();
-            tbUsername.Focus();
         }
         function onFileUploadComplete(s, e) {
             if (e.callbackData) {
@@ -35,28 +34,24 @@
         margin-bottom: 20px;
         padding: 15px; background-image:
   linear-gradient( to bottom, hsl(0, 0%, 100%) 0%, hsl(224.9, 68.8%, 98.72%) 7.5%, hsl(224.77, 69.09%, 97.16%) 14.6%, hsl(224.61, 69.44%, 95.33%) 21.3%, hsl(224.42, 69.84%, 93.24%) 27.7%, hsl(224.18, 70.3%, 90.9%) 33.9%, hsl(223.9, 70.83%, 88.32%) 40%, hsl(223.56, 71.41%, 85.51%) 45.9%, hsl(223.14, 72.07%, 82.46%) 51.9%, hsl(222.64, 72.81%, 79.17%) 57.9%, hsl(222.01, 73.63%, 75.62%) 64.1%, hsl(221.22, 74.55%, 71.78%) 70.5%, hsl(220.19, 75.61%, 67.59%) 77.2%, hsl(218.78, 76.85%, 62.87%) 84.3%, hsl(216.62, 78.44%, 57.18%) 91.9%, hsl(210, 100%, 45.1%) 100% )">
-    <div style="z-index: 99">
-            <div style="z-index: 99">
-                <dx:ASPxButton ID="ASPxButton1" runat="server" Image-IconID="businessobjects_bo_department_svg_dark_32x32" AutoPostBack="False" UseSubmitBehavior="false">
-                <ClientSideEvents Click="function(s, e) { ShowLoginWindow(); }" />
-            </dx:ASPxButton>
+    <div style="z-index: 99; background-color: transparent">
+            <div style="z-index: 99; background-color: transparent">
+                <dx:ASPxButton ID="ASPxButton1" runat="server" BackColor="Transparent" Border-BorderColor="Transparent" Image-IconID="businessobjects_bo_department_svg_dark_32x32" AutoPostBack="False" UseSubmitBehavior="false">
+                    <ClientSideEvents Click="function(s, e) { ShowUsersWindow(); }" />
+                </dx:ASPxButton>
             </div>
     </div>
   <div>
         <h1 class="title" style="text-align: center;">CG/Web</h1>
         <p class="lead" style="text-align:center;">Menú de ambientes de desarrollo CG/Web</p>
   </div>
-     <div style="z-index: 99">
-         <div style="z-index: 99">
-             <div style="z-index: 99; display: flex; width: 50px; height: 20px;">
-                 <div style="margin-left: 250px">
-                     <dx:ASPxButton ID="ASPxButton4" runat="server" Image-IconID="businessobjects_bo_person_svg_32x32" AutoPostBack="False" UseSubmitBehavior="False">
-                    </dx:ASPxButton>
-                 </div>
-                 <div style="margin-left: 25px">
-                     <dx:ASPxButton ID="ASPxButton2" runat="server" Text="Registrarse" AutoPostBack="False" UseSubmitBehavior="False" Width="100%" >
-                         <ClientSideEvents Click="function(s, e) { ShowCreateAccountWindow(); }" />
-                    </dx:ASPxButton>
+     <div style="z-index: 99; background-color: transparent">
+         <div style="z-index: 99; background-color: transparent">
+             <div style="z-index: 99; display: flex; width: 50px; height: 20px; background-color: transparent">
+                 <div style="margin-left: 350px; background-color: transparent">
+                     <dx:ASPxButton ID="ASPxButton4" runat="server" BackColor="Transparent" Border-BorderColor="Transparent" Image-IconID="businessobjects_bo_person_svg_32x32" AutoPostBack="False" UseSubmitBehavior="False">
+                        <ClientSideEvents Click="function(s, e) { ShowLoginWindow(); }" />
+                     </dx:ASPxButton>
                  </div>
              </div>
          </div>
@@ -64,8 +59,8 @@
 <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
  </div>
     <dx:ASPxPopupControl ID="pcLogin" runat="server" Width="525px" CloseAction="CloseButton" CloseOnEscape="True" Modal="True"
-        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcLogin"
-        HeaderText="Login" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="True">
+        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcUsuarios"
+        HeaderText="Usuarios" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="True">
         <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('entryGroup'); tbLogin.Focus(); }" />
         <ContentCollection>
             <dx:PopupControlContentControl runat="server">
@@ -126,6 +121,8 @@
                                     <Tab BorderSize="1">
                                     </Tab>
                                 </StylesExport>
+
+<Border BorderColor="Transparent"></Border>
                             </dx:ASPxCardView>
                             <asp:SqlDataSource ID="Usuarios" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoF %>" DeleteCommand="DELETE FROM [users] WHERE [id] = @id" InsertCommand="INSERT INTO [users] ([name_user], [password], [name], [lastname], [id_catalogue]) VALUES (@name_user, @password, @name, @lastname, @id_catalogue)" SelectCommand="SELECT * FROM [users]" UpdateCommand="UPDATE [users] SET [name_user] = @name_user, [password] = @password, [name] = @name, [lastname] = @lastname, [id_catalogue] = @id_catalogue WHERE [id] = @id">
                                 <DeleteParameters>
@@ -150,35 +147,31 @@
                         </dx:PanelContent>
                     </PanelCollection>
                 </dx:ASPxPanel>
-                <div>
-                    <a href="javascript:ShowCreateAccountWindow();" id="hl1" style="float: right; margin: 14px 0 10px 0;">Create Account</a>
-                </div>
             </dx:PopupControlContentControl>
         </ContentCollection>
         <ContentStyle>
             <Paddings PaddingBottom="5px" />
         </ContentStyle>
     </dx:ASPxPopupControl>
-    <dx:ASPxPopupControl ID="pcCreateAccount" runat="server" Width="320" CloseAction="CloseButton" CloseOnEscape="true"
-        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcCreateAccount"
-        HeaderText="Create Account" AllowDragging="True" Modal="True" PopupAnimationType="Fade"
-        EnableViewState="False" PopupHorizontalOffset="40" PopupVerticalOffset="40" AutoUpdatePosition="true">
-        <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('createAccountGroup'); }" />
-        <SizeGripImage Width="11px" />
+    <dx:ASPxPopupControl ID="ASPxPopupControl1" runat="server" Width="320" CloseAction="CloseButton" CloseOnEscape="true" Modal="True"
+        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcLogin"
+        HeaderText="Login" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="true">
+        <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('entryGroup'); tbLogin.Focus(); }" />
         <ContentCollection>
             <dx:PopupControlContentControl runat="server">
-                <dx:ASPxPanel ID="Panel2" runat="server" DefaultButton="btCreate">
+                <dx:ASPxPanel ID="ASPxPanel1" runat="server" DefaultButton="btOK">
                     <PanelCollection>
                         <dx:PanelContent runat="server">
-                            <dx:ASPxFormLayout runat="server" ID="CreateAccountFormLayout" Width="100%" Height="100%">
+                            <dx:ASPxFormLayout runat="server" ID="ASPxFormLayout1" Width="100%" Height="100%">
                                 <Items>
                                     <dx:LayoutItem Caption="Username">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxTextBox ID="tbUsername" runat="server" Width="150px" ClientInstanceName="tbUsername">
-                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="createAccountGroup"
-                                                        SetFocusOnError="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
-                                                        <RequiredField IsRequired="True" ErrorText="Username is required" />
+                                                <dx:ASPxTextBox ID="tbLogin" runat="server" Width="100%" ClientInstanceName="tbLogin">
+                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="entryGroup" SetFocusOnError="True"
+                                                        ErrorDisplayMode="Text" ErrorTextPosition="Bottom" CausesValidation="True">
+                                                        <RequiredField ErrorText="Username required" IsRequired="True" />
+                                                        <RegularExpression ErrorText="Login required" />
                                                         <ErrorFrameStyle Font-Size="10px">
                                                             <ErrorTextPaddings PaddingLeft="0px" />
                                                         </ErrorFrameStyle>
@@ -190,11 +183,10 @@
                                     <dx:LayoutItem Caption="Password">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxTextBox ID="tbPass1" runat="server" Width="150px" ClientInstanceName="pass1"
-                                                    Password="True">
-                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="createAccountGroup"
-                                                        SetFocusOnError="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
-                                                        <RequiredField IsRequired="True" ErrorText="Password is required" />
+                                                <dx:ASPxTextBox ID="tbPassword" runat="server" Width="100%" Password="True">
+                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="entryGroup" SetFocusOnError="True"
+                                                        ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
+                                                        <RequiredField ErrorText="Password required" IsRequired="True" />
                                                         <ErrorFrameStyle Font-Size="10px">
                                                             <ErrorTextPaddings PaddingLeft="0px" />
                                                         </ErrorFrameStyle>
@@ -203,57 +195,27 @@
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="Confirm password">
+                                    <dx:LayoutItem Caption="">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxTextBox ID="tbConfPass2" runat="server" Width="150px" ClientInstanceName="pass2"
-                                                    Password="True">
-                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="createAccountGroup"
-                                                        SetFocusOnError="True" ErrorText="Password is incorrect" ErrorDisplayMode="Text"
-                                                        ErrorTextPosition="Bottom">
-                                                        <RequiredField IsRequired="True" ErrorText="Please, confirm your password" />
-                                                        <ErrorFrameStyle Font-Size="10px">
-                                                            <ErrorTextPaddings PaddingLeft="0px" />
-                                                        </ErrorFrameStyle>
-                                                    </ValidationSettings>
-                                                    <ClientSideEvents Validation="function(s, e) { e.isValid = (pass1.GetText()==pass2.GetText()); }" />
-                                                </dx:ASPxTextBox>
+                                                <dx:ASPxCheckBox ID="chbRemember" runat="server" Text="Remember me">
+                                                </dx:ASPxCheckBox>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
                                     </dx:LayoutItem>
-                                    <dx:LayoutItem Caption="Email">
+                                    <dx:LayoutItem ShowCaption="False" Paddings-PaddingTop="19">
                                         <LayoutItemNestedControlCollection>
                                             <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxTextBox ID="tbEmail" runat="server" Width="150px">
-                                                    <ValidationSettings EnableCustomValidation="True" ValidationGroup="createAccountGroup"
-                                                        SetFocusOnError="True" ErrorDisplayMode="Text" ErrorTextPosition="Bottom">
-                                                        <RequiredField IsRequired="True" ErrorText="E-mail is required" />
-                                                        <RegularExpression ErrorText="Invalid e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
-                                                        <ErrorFrameStyle Font-Size="10px">
-                                                            <ErrorTextPaddings PaddingLeft="0px" />
-                                                        </ErrorFrameStyle>
-                                                    </ValidationSettings>
-                                                </dx:ASPxTextBox>
-                                            </dx:LayoutItemNestedControlContainer>
-                                        </LayoutItemNestedControlCollection>
-                                    </dx:LayoutItem>
-                                    <dx:LayoutItem ShowCaption="False">
-                                        <LayoutItemNestedControlCollection>
-                                            <dx:LayoutItemNestedControlContainer>
-                                                <dx:ASPxButton ID="btCreate" runat="server" Text="OK" Width="80px" AutoPostBack="False" Style="float: left; margin-right: 8px">
-                                                    <ClientSideEvents Click="function(s, e) {
-                                                        if(ASPxClientEdit.ValidateGroup('createAccountGroup')) {
-                                                            ASPxClientEdit.ClearGroup('entryGroup');
-                                                            tbLogin.SetText(tbUsername.GetText());
-                                                            pcCreateAccount.Hide();
-                                                        }
-                                                    }" />
+                                                <dx:ASPxButton ID="btOK" runat="server" Text="OK" Width="80px" AutoPostBack="False" Style="float: left; margin-right: 8px">
+                                                    <ClientSideEvents Click="function(s, e) { if(ASPxClientEdit.ValidateGroup('entryGroup')) pcLogin.Hide(); }" />
                                                 </dx:ASPxButton>
-                                                <dx:ASPxButton ID="btCancel2" runat="server" Text="Cancel" Width="80px" AutoPostBack="False" Style="float: left; margin-right: 8px">
-                                                    <ClientSideEvents Click="function(s, e) { pcCreateAccount.Hide(); }" />
+                                                <dx:ASPxButton ID="btCancel" runat="server" Text="Cancel" Width="80px" AutoPostBack="False" Style="float: left; margin-right: 8px">
+                                                    <ClientSideEvents Click="function(s, e) { pcLogin.Hide(); }" />
                                                 </dx:ASPxButton>
                                             </dx:LayoutItemNestedControlContainer>
                                         </LayoutItemNestedControlCollection>
+
+<Paddings PaddingTop="19px"></Paddings>
                                     </dx:LayoutItem>
                                 </Items>
                             </dx:ASPxFormLayout>
@@ -262,11 +224,14 @@
                 </dx:ASPxPanel>
             </dx:PopupControlContentControl>
         </ContentCollection>
+        <ContentStyle>
+            <Paddings PaddingBottom="5px" />
+        </ContentStyle>
     </dx:ASPxPopupControl>
-
+    
     <div class="row">
         <div class="col-md-4">
-            <dx:ASPxCardView CssClass="card-view" ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="CardView1" KeyFieldName="id" EnableTheming="True" Theme="MetropolisBlue" Width="864px">
+            <dx:ASPxCardView CssClass="card-view" ID="ASPxCardView1" runat="server" AutoGenerateColumns="False" DataSourceID="CardView1" KeyFieldName="id" EnableTheming="True" Width="864px" Border-BorderColor="Transparent" Theme="MetropolisBlue">
                 <ClientSideEvents CardClick="OnCardSelectionChanged" />
                  <SettingsEditing Mode="PopupEditForm">
                     <BatchEditSettings EditMode="Card" />
@@ -316,7 +281,7 @@
                     <dx:CardViewTextColumn FieldName="name_database" VisibleIndex="9" ShowInCustomizationForm="True">
                     </dx:CardViewTextColumn>
                     <dx:CardViewBinaryImageColumn FieldName="logo" VisibleIndex="1" Caption=" ">
-                        <PropertiesBinaryImage ImageHeight="250px" ImageWidth="250px">
+                        <PropertiesBinaryImage ImageHeight="175px" ImageWidth="200px">
                             <EditingSettings Enabled="True">
                             </EditingSettings>
                         </PropertiesBinaryImage>
@@ -398,6 +363,8 @@
 
                     <Tab BorderSize="1"></Tab>
                 </StylesExport>
+
+<Border BorderColor="Transparent"></Border>
             </dx:ASPxCardView>
             <asp:SqlDataSource ID="ComboBox" runat="server" ConnectionString="<%$ ConnectionStrings:ProyectoF %>" SelectCommand="SELECT * FROM [catalogue] WHERE ([name_catalogue] = @name_catalogue)">
                 <SelectParameters>
