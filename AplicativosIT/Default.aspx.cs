@@ -52,5 +52,9 @@ namespace AplicativosIT
         {
 
         }
+        protected void detailGrid_DataSelect(object sender, EventArgs e)
+        {
+            Session["fk_environment"] = (sender as ASPxGridView).GetMasterRowKeyValue();
+        }
     }
 }

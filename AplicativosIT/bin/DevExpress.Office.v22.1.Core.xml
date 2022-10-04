@@ -350,7 +350,7 @@
     </member>
     <member name="N:DevExpress.Office.Localization">
       <summary>
-        <para>Contains classes and enumerations that are intended to localize the User Interface of DevExpress Office Controls (e.g., Spreadsheet, Rich Text Editor, Snap, etc.).</para>
+        <para>Contains classes and enumerations that are intended to localize the User Interface of DevExpress Office Controls (e.g., Spreadsheet, Rich Text Editor, etc.).</para>
       </summary>
     </member>
     <member name="T:DevExpress.Office.Localization.OfficeLocalizer">
@@ -631,7 +631,7 @@
     </member>
     <member name="T:DevExpress.Office.Services.IUriStreamProvider">
       <summary>
-        <para>Defines the data stream provider for the <see cref="T:DevExpress.Office.Services.IUriStreamService"/>.</para>
+        <para>Allows you to retirve data from a URI.</para>
       </summary>
     </member>
     <member name="M:DevExpress.Office.Services.IUriStreamProvider.GetStream(System.String)">

@@ -5482,6 +5482,12 @@
       </summary>
       <value>The annotation border color.</value>
     </member>
+    <member name="P:DevExpress.Pdf.PdfFreeTextAnnotationFacade.RotationAngle">
+      <summary>
+        <para>Gets or sets the annotation’s rotation angle. The annotation is rotated counterclockwise.</para>
+      </summary>
+      <value>The degree of rotation (from 0 to 360) in multiples of 90.</value>
+    </member>
     <member name="M:DevExpress.Pdf.PdfFreeTextAnnotationFacade.SetCallout(DevExpress.Pdf.PdfAnnotationLineEndingStyle,DevExpress.Pdf.PdfPoint,System.Nullable{DevExpress.Pdf.PdfPoint},DevExpress.Pdf.PdfPoint)">
       <summary>
         <para>Adds a callout line to the free text annotation.</para>
@@ -7795,6 +7801,12 @@
       </summary>
       <value>The page number.</value>
     </member>
+    <member name="P:DevExpress.Pdf.PdfPageFacade.RotationAngle">
+      <summary>
+        <para>Retrieves the page’s rotation angle.</para>
+      </summary>
+      <value>The degree of rotation (from 0 to 360).</value>
+    </member>
     <member name="T:DevExpress.Pdf.PdfPageInfo">
       <summary>
         <para>Contains information about a page of a document opened in PDF Viewer.</para>
@@ -9214,6 +9226,12 @@
       </summary>
       <value>true to keep aspect ratio; otherwise, false.</value>
     </member>
+    <member name="P:DevExpress.Pdf.PdfRubberStampAnnotationFacade.RotationAngle">
+      <summary>
+        <para>Gets or sets the annotation’s rotation angle. The annotation is rotated counterclockwise.</para>
+      </summary>
+      <value>The degree of rotation (from 0 to 360).</value>
+    </member>
     <member name="M:DevExpress.Pdf.PdfRubberStampAnnotationFacade.SetCustomIcon(System.IO.Stream,System.Int32)">
       <summary>
         <para>Creates a custom rubber stamp icon from a page in another document.</para>
@@ -9393,6 +9411,24 @@
       <summary>
         <para>A class that provides document encryption options and document signature to save the document.</para>
       </summary>
+    </member>
+    <member name="P:DevExpress.Pdf.PdfSaveOptions.DisableCreationDateUpdate">
+      <summary>
+        <para>Gets or sets whether to disable the xmp:CreateDate metadata node update.</para>
+      </summary>
+      <value>true to disable metadata node update; otherwise, false.</value>
+    </member>
+    <member name="P:DevExpress.Pdf.PdfSaveOptions.DisableMetadataUpdate">
+      <summary>
+        <para>Gets or sets whether to disable all mandatory metadata updates.</para>
+      </summary>
+      <value>true to disable mandatory metadata nodes update; otherwise, false.</value>
+    </member>
+    <member name="P:DevExpress.Pdf.PdfSaveOptions.DisableModDateUpdate">
+      <summary>
+        <para>Gets or sets whether to disable the xmp:ModifyDate metadata node update.</para>
+      </summary>
+      <value>true to disable metadata node update; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.Pdf.PdfSaveOptions.EncryptionOptions">
       <summary>

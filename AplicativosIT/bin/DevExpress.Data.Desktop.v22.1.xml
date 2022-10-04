@@ -423,10 +423,129 @@
       </summary>
       <value>A string that specifies the printer status.</value>
     </member>
+    <member name="T:DevExpress.Utils.Html.DxHtmlElement">
+      <summary>
+        <para>An element of an HTML-CSS template.</para>
+      </summary>
+    </member>
     <member name="M:DevExpress.Utils.Html.DxHtmlElement.#ctor(DevExpress.Utils.Html.Dom.DxHtmlDocumentNode)">
       <summary>
         <para>Initializes a new instance of the <see cref="T:DevExpress.Utils.Html.DxHtmlElement"/> class with specified settings.</para>
       </summary>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.ChildElementCount">
+      <summary>
+        <para>Returns the number of elements owned by this HTML element (the length of the <see cref="P:DevExpress.Utils.Html.DxHtmlElement.Children"/> collection).</para>
+      </summary>
+      <value>The number of HTML elements owned by this element.</value>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.Children">
+      <summary>
+        <para>Returns HTML elements owned by this element. This collection includes only direct children; elements owned by child elements are not included.</para>
+      </summary>
+      <value>The collection of child HTML elements.</value>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.ClassName">
+      <summary>
+        <para>Gets or sets the name of the CSS style applied to this element.</para>
+      </summary>
+      <value>The name of the CSS style applied to this element.</value>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.ClientHeight">
+      <summary>
+        <para>Returns the height of the element’s client area (the area that contains child elements of this HTML element).</para>
+      </summary>
+      <value>The height of this element’s client area.</value>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.ClientLeft">
+      <summary>
+        <para>Returns the distance between the element’s left border and the left border of this element’s client area (the area that contains child elements of this HTML element).</para>
+      </summary>
+      <value>The left margin of the element’s client area.</value>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.ClientTop">
+      <summary>
+        <para>Returns the distance between the element’s top border and the top border of this element’s client area (the area that contains child elements of this HTML element).</para>
+      </summary>
+      <value>The top margin of the element’s client area.</value>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.ClientWidth">
+      <summary>
+        <para>Returns the width of the element’s client area (the area that contains child elements of this HTML element).</para>
+      </summary>
+      <value>The width of this element’s client area.</value>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.Disabled">
+      <summary>
+        <para>Gets or sets whether this element is disabled. Disabled elements do not trigger HtmlElementMouseClick and HtmlElementMouseDown events, and are styled with the “main_class_name:disabled” CSS pseudo-class.</para>
+      </summary>
+      <value>true if this element is disabled; otherwise, false.</value>
+    </member>
+    <member name="M:DevExpress.Utils.Html.DxHtmlElement.FindElementById(System.String)">
+      <summary>
+        <para>Returns an item of this element’s Children collection that has the target ID. If multiple items are present, it returns the first found item.</para>
+      </summary>
+      <param name="id">The ID to search.</param>
+      <returns>The HTML element with the target ID.</returns>
+    </member>
+    <member name="M:DevExpress.Utils.Html.DxHtmlElement.FindElementsByClass(System.String)">
+      <summary>
+        <para>Returns all of this element’s Children collection items that are styled with the target CSS class.</para>
+      </summary>
+      <param name="class">The name of a CSS style to find.</param>
+      <returns>The list of found HTML elements.</returns>
+    </member>
+    <member name="M:DevExpress.Utils.Html.DxHtmlElement.FindElementsByTag(System.String)">
+      <summary>
+        <para>Returns all of this element’s Children collection items that have the specific tag.</para>
+      </summary>
+      <param name="name">The tag to find.</param>
+      <returns>The collection of child elements with the given tag.</returns>
+    </member>
+    <member name="M:DevExpress.Utils.Html.DxHtmlElement.Focus(System.Boolean)">
+      <summary>
+        <para>Gets or sets whether this element is focused. Focused elements are styled with the “main_class_name:focus” CSS pseudo-class.</para>
+      </summary>
+      <param name="value">true to focus the element and apply the “:focus” CSS pseudo-class; false to unfocus the element and apply the regular CSS style.</param>
+      <returns>true if the item was successfully focused; otherwise, false.</returns>
+    </member>
+    <member name="M:DevExpress.Utils.Html.DxHtmlElement.ForEach(System.Action{DevExpress.Utils.Html.DxHtmlElement},System.Predicate{DevExpress.Utils.Html.DxHtmlElement})">
+      <summary>
+        <para>Modifies all child elements that match the given predicate. This method searches for matching elements recursively: first among this element’s Children collection, then among child elements of these children, and so on, until it reaches the lowermost elements.</para>
+      </summary>
+      <param name="action">The action that modifies found elements.</param>
+      <param name="predicate">The condition used to find HTML elements.</param>
+    </member>
+    <member name="M:DevExpress.Utils.Html.DxHtmlElement.GetComputedStyle">
+      <summary>
+        <para>Returns the actual CSS style applied to this element.</para>
+      </summary>
+      <returns>The actual CSS style of this element.</returns>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.Hidden">
+      <summary>
+        <para>Gets or sets whether this element is shown on-screen.</para>
+      </summary>
+      <value>true to completely hide this element; false to display the element.</value>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.Id">
+      <summary>
+        <para>Gets or sets the unique element identifier. You can search elements by their IDs with the FindElementById(String) method.</para>
+      </summary>
+      <value>The element identifier.</value>
+    </member>
+    <member name="M:DevExpress.Utils.Html.DxHtmlElement.Select(System.Boolean)">
+      <summary>
+        <para>Gets or sets whether this element is selected. Focused elements are styled with the “main_class_name:select” CSS pseudo-class.</para>
+      </summary>
+      <param name="value">true to select the element and apply the “:select” CSS pseudo-class; false to deselect the element and apply the regular CSS style.</param>
+      <returns>true if the element was successfully selected; otherwise, false.</returns>
+    </member>
+    <member name="P:DevExpress.Utils.Html.DxHtmlElement.Title">
+      <summary>
+        <para>Gets or sets the element tooltip.</para>
+      </summary>
+      <value>The tooltip displayed when a user hovers over this element.</value>
     </member>
     <member name="T:DevExpress.Utils.Html.DxHtmlElementEventArgs">
       <summary>

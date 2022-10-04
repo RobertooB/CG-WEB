@@ -11,61 +11,70 @@ namespace AplicativosIT
 {
 
 
-    public partial class LogOn
+    public partial class _Default___
     {
 
         /// <summary>
-        /// Control LogoImage.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxImage LogoImage;
+        protected global::DevExpress.Web.ASPxButton Button1;
 
         /// <summary>
-        /// Control FormLayout.
+        /// Control CardView.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxFormLayout FormLayout;
+        protected global::DevExpress.Web.ASPxCardView CardView;
 
         /// <summary>
-        /// Control AccountNameTextBox.
+        /// Control info.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox AccountNameTextBox;
+        protected global::DevExpress.Web.CardViewCustomCommandButton info;
 
         /// <summary>
-        /// Control UserPasswordTextBox.
+        /// Control ComboBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox UserPasswordTextBox;
+        protected global::System.Web.UI.WebControls.SqlDataSource ComboBox;
 
         /// <summary>
-        /// Control SignInButton.
+        /// Control ComboBox0.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton SignInButton;
+        protected global::System.Web.UI.WebControls.SqlDataSource ComboBox0;
 
         /// <summary>
-        /// Control ErrorLabel.
+        /// Control ComboBox1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ErrorLabel;
+        protected global::System.Web.UI.WebControls.SqlDataSource ComboBox1;
+
+        /// <summary>
+        /// Control CardView1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource CardView1;
     }
 }

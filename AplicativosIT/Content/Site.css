@@ -40,7 +40,7 @@ margin:auto;
     height: 275px;
 }
 .waves {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
 }

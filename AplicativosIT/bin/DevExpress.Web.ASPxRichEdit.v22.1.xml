@@ -1553,6 +1553,12 @@
       </summary>
       <value>An integer value that is the maximum number of steps used to convert the misspelled word into a suggested one.</value>
     </member>
+    <member name="P:DevExpress.Web.ASPxRichEdit.ASPxRichEditSpellCheckerSettings.MaxRequestLength">
+      <summary>
+        <para>Gets or sets the maximum length of a request that the ASPxRichEdit sends to the server without splitting.</para>
+      </summary>
+      <value>The maximum request length.</value>
+    </member>
     <member name="P:DevExpress.Web.ASPxRichEdit.ASPxRichEditSpellCheckerSettings.OptionsSpelling">
       <summary>
         <para>Provides access to basic spelling settings.</para>
