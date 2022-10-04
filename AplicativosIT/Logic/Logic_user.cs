@@ -5,9 +5,9 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data;
 
-using AplicativoWebIt.Models;
+using AplicativosIT.Models;
 
-namespace AplicativoWebIt.Logic
+namespace AplicativosIT.Logic
 {
     public class Logic_user
     {
@@ -18,7 +18,7 @@ namespace AplicativoWebIt.Logic
 
             //cambiar cadena de conexion
             //data source = server, initial catalog= base de datos 
-            using (SqlConnection conection = new SqlConnection("Data Source=DESKTOP-6MBRS96 ; Initial Catalog=proyect2.0; Integrated Security=true"))
+            using (SqlConnection conection = new SqlConnection("Data Source=DESKTOP-15H848K\\SQLEXPRESS ; Initial Catalog=Proyecto 2; Integrated Security=true"))
             {
 
                 string query = "select name, lastname, name_user, password, rol from users where name_user = @pname_user and password = @ppassword";

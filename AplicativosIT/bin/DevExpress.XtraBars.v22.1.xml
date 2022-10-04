@@ -29826,6 +29826,12 @@ The DefaultBoolean.Default value is equivalent to DefaultBoolean.True if the sta
         <para>Initializes a new instance of the <see cref="T:DevExpress.XtraBars.Ribbon.RibbonEmptyAreaImageOptions"/> class.</para>
       </summary>
     </member>
+    <member name="P:DevExpress.XtraBars.Ribbon.RibbonEmptyAreaImageOptions.AlwaysVisible">
+      <summary>
+        <para>Gets or sets whether the Ribbon can clip the Empty Area Image when there is not enough free space to display this image according to its SizeMode.</para>
+      </summary>
+      <value>true to allow partially visible Empty Area Images; false to hide an Empty Area Image if there is not enough free space to display it.</value>
+    </member>
     <member name="P:DevExpress.XtraBars.Ribbon.RibbonEmptyAreaImageOptions.ImageAlignment">
       <summary>
         <para>Gets or sets how the image is aligned in the empty area.</para>

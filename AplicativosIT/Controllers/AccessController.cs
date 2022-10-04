@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web.Mvc;
 
 
-using AplicativoWebIt.Models;
-using AplicativoWebIt.Logic;
+using AplicativosIT.Models;
+using AplicativosIT.Logic;
 using System.Web.Security;
 
-namespace AplicativoWebIt.Controllers
+namespace AplicativosIT.Controllers
 {
     public class AccessController : Controller
     {
@@ -31,12 +31,12 @@ namespace AplicativoWebIt.Controllers
 
                 if (object_.rol == Rol.Admin)
                 {
-                    return RedirectToAction("Admin", "Home");
+                    Response.Redirect("~/Admin.aspx");
                 }
 
                 if (object_.rol == Rol.Designer)
                 {
-                    return RedirectToAction("Designer", "Home");
+                    Response.Redirect("~/Designer.aspx");
                 }
             }
             return View();

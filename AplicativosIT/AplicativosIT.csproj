@@ -269,9 +269,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LogOn.aspx" />
-    <Content Include="Registro.aspx" />
-    <Content Include="Login.aspx" />
+    <Content Include="Home\Index.aspx" />
+    <Content Include="Admin.aspx" />
+    <Content Include="Designer.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -340,31 +340,27 @@
     <Compile Include="Controllers\AccessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Logic\Logic_user.cs" />
-    <Compile Include="LogOn.aspx.cs">
-      <DependentUpon>LogOn.aspx</DependentUpon>
+    <Compile Include="Home\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LogOn.aspx.designer.cs">
-      <DependentUpon>LogOn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Rol.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Permissions\PermissionsRolAttribute.cs" />
-    <Compile Include="Registro.aspx.cs">
-      <DependentUpon>Registro.aspx</DependentUpon>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registro.aspx.designer.cs">
-      <DependentUpon>Registro.aspx</DependentUpon>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Designer.aspx.cs">
+      <DependentUpon>Designer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Designer.aspx.designer.cs">
+      <DependentUpon>Designer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -401,12 +397,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Access\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-    <Content Include="Views\Access\Index.cshtml" />
+    <Content Include="Access\Index.cshtml" />
     <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

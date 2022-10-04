@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AplicativoWebIt.Models
+namespace AplicativosIT.Models
 {
     public enum Rol
     {
-        Admin = 4,
-        Designer = 5
+        Admin = 10,
+        Designer = 1
     }
 }

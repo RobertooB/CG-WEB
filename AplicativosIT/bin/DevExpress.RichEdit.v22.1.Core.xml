@@ -1736,16 +1736,6 @@
         <para>The type of layout element of the <see cref="T:DevExpress.XtraRichEdit.API.Layout.CommentBox"/> class.</para>
       </summary>
     </member>
-    <member name="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.CustomRunBox">
-      <summary>
-        <para>The type of layout element of the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> class specific to the layout created by the SnapControl of the Snap application. Relates to the custom run which provides an inherent method for its visualization.</para>
-      </summary>
-    </member>
-    <member name="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.DataContainerRunBox">
-      <summary>
-        <para>The type of layout element of the <see cref="T:DevExpress.XtraRichEdit.API.Layout.PlainTextBox"/> class specific to the layout created by the SnapControl of the Snap application. Encapsulates data and information required for data retrieval.</para>
-      </summary>
-    </member>
     <member name="F:DevExpress.XtraRichEdit.API.Layout.LayoutType.DeletedTextMarkBox">
       <summary>
         <para>Layout element that relates to the markup indicating the deleted text (# or ^ symbol) when the Track Changes feature is enabled.</para>
@@ -5076,46 +5066,46 @@
     </member>
     <member name="M:DevExpress.XtraRichEdit.API.Native.Document.MailMerge(DevExpress.XtraRichEdit.API.Native.Document)">
       <summary>
-        <para>Merges the current document and sends the result to the specified <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/>.</para>
+        <para>Merges data to the current document and sends the result to the specified <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> instance.</para>
       </summary>
       <param name="targetDocument">An object exposing the <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> interface to which the merged document is sent.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.API.Native.Document.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,DevExpress.XtraRichEdit.API.Native.Document)">
       <summary>
-        <para>Merges the current document using the specified options, and sends the result to the specified <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/>.</para>
+        <para>Merges data to the current document and sends the result to the specified <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> instance. Allows you to set the mail merge options.</para>
       </summary>
-      <param name="options">A <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface exposing options for the current merge.</param>
-      <param name="targetDocument">An object exposing the <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> interface to which the merged document is sent.</param>
+      <param name="options">An object that contains options for the current merge.</param>
+      <param name="targetDocument">An object that exposes the <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> interface to which the merged document is sent.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.API.Native.Document.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
       <summary>
-        <para>Merges the current document using the specified options and sends the result to the specified stream in a specified format.</para>
+        <para>Merges data to the current document and sends the result in the specified format to a stream. Allows you to set mail merge options.</para>
       </summary>
-      <param name="options">A <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface exposing options for the current merge.</param>
-      <param name="stream">A <see cref="T:System.IO.Stream"/> object representing the output stream.</param>
-      <param name="format">A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration member specifying the destination format.</param>
+      <param name="options">An object that contains options for the current merge.</param>
+      <param name="stream">An output stream.</param>
+      <param name="format">An enumeration member that indicates the destination format.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.API.Native.Document.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,System.String,DevExpress.XtraRichEdit.DocumentFormat)">
       <summary>
-        <para>Merges the current document using the specified options and sends the result to the specified file in a specified format.</para>
+        <para>Merges data to the current document and saves the result to a file in the specified format. Allows you to set mail merge options.</para>
       </summary>
-      <param name="options">A <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface exposing options for the current merge.</param>
+      <param name="options">An object that contains options for the current merge.</param>
       <param name="fileName">A name of the file to which the merged document is saved.</param>
-      <param name="format">A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration member specifying the destination format.</param>
+      <param name="format">An enumeration member that indicates the destination format.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.API.Native.Document.MailMerge(System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
       <summary>
-        <para>Merges the current document and sends the result to the specified stream in a specified format.</para>
+        <para>Merges data to the current document, and sends the result in the specified format to a stream.</para>
       </summary>
-      <param name="stream">A <see cref="T:System.IO.Stream"/> object representing the output stream.</param>
-      <param name="format">A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration member specifying the destination format.</param>
+      <param name="stream">An output stream.</param>
+      <param name="format">An enumeration member that indicates the destination format.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.API.Native.Document.MailMerge(System.String,DevExpress.XtraRichEdit.DocumentFormat)">
       <summary>
-        <para>Merges the current document and sends the result to the specified file in a specified format.</para>
+        <para>Merges data to the current document and sends the result to a file in the specified format.</para>
       </summary>
-      <param name="fileName">A name of the file to which the merged document is saved.</param>
-      <param name="format">A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration member specifying the destination format.</param>
+      <param name="fileName">A name of the file to which the merge result is saved.</param>
+      <param name="format">An enumeration member that indicates the destination format.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.API.Native.Document.MakeAllTablesWordCompatible">
       <summary>
@@ -6369,7 +6359,7 @@
       <summary>
         <para>Specifies an application used to modify the document.</para>
       </summary>
-      <value>The application name. The default is “DevExpress Office File API/22.1.4.0”.</value>
+      <value>The application name. The default is “DevExpress Office File API/22.1.5.0”.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.API.Native.DocumentProperties.AppVersion">
       <summary>
@@ -8699,7 +8689,7 @@
     </member>
     <member name="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions">
       <summary>
-        <para>Defines the mail merge options.</para>
+        <para>Defines mail merge options for a specific merge process.</para>
       </summary>
     </member>
     <member name="P:DevExpress.XtraRichEdit.API.Native.MailMergeOptions.CopyTemplateStyles">
@@ -8724,31 +8714,31 @@
       <summary>
         <para>Gets or sets the record index from which the merge starts.</para>
       </summary>
-      <value>An integer, specifying the starting record index.</value>
+      <value>The starting record index.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.API.Native.MailMergeOptions.HeaderFooterLinkToPrevious">
       <summary>
         <para>Gets ors sets whether headers (footers) in the merged document have the same content in all sections.</para>
       </summary>
-      <value>true, to link headers (footers) one to another so that they have the same content; otherwise, false.</value>
+      <value>true to link headers and/or footers to one another (so that they have the same content); otherwise, false.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.API.Native.MailMergeOptions.LastRecordIndex">
       <summary>
         <para>Gets or sets the record index at which the merge finishes.</para>
       </summary>
-      <value>An integer, specifying the final record index.</value>
+      <value>The final record index.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.API.Native.MailMergeOptions.MergeMode">
       <summary>
         <para>Gets or sets how the merged ranges are delimited in the resulting document.</para>
       </summary>
-      <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.MergeMode"/> enumeration value specifying the delimiter.</value>
+      <value>An enumeration value that indicates the delimiter.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.API.Native.MailMergeOptions.NumberedListRestart">
       <summary>
         <para>Sets the behavior of numbered lists when the mail merge operation is performed.</para>
       </summary>
-      <value>One of the <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeNumberingRestart"/> enumeration values.</value>
+      <value>An enumeration value that indicates the numbering list restart mode.</value>
     </member>
     <member name="T:DevExpress.XtraRichEdit.API.Native.Match">
       <summary>
@@ -11399,7 +11389,7 @@
       <summary>
         <para>Gets the name of the application used to modify the document.</para>
       </summary>
-      <value>The application’s name. The default is “DevExpress Office File API/22.1.4.0”.</value>
+      <value>The application’s name. The default is “DevExpress Office File API/22.1.5.0”.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.API.Native.ReadOnlyDocumentBuiltInProperties.AppVersion">
       <summary>
@@ -16949,12 +16939,6 @@
       <param name="rowsCount">The number of rows that the cell is to be split into.</param>
       <param name="columnCount">The number of columns that the cell is to be split into.</param>
     </member>
-    <member name="P:DevExpress.XtraRichEdit.API.Native.TableCell.Style">
-      <summary>
-        <para>Gets or sets the style applied to a cell in a table of a Snap application.</para>
-      </summary>
-      <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.TableCellStyle"/> interface which defines a style of table cells in a Snap application.</value>
-    </member>
     <member name="P:DevExpress.XtraRichEdit.API.Native.TableCell.Table">
       <summary>
         <para>Provides access to the parent table.</para>
@@ -17241,65 +17225,6 @@
       <summary>
         <para><see cref="P:DevExpress.XtraRichEdit.API.Native.TableCell.VerticalAlignment"/></para>
       </summary>
-    </member>
-    <member name="T:DevExpress.XtraRichEdit.API.Native.TableCellStyle">
-      <summary>
-        <para>A single style that can be applied to a cell in a table of a Snap application.</para>
-      </summary>
-    </member>
-    <member name="P:DevExpress.XtraRichEdit.API.Native.TableCellStyle.IsDeleted">
-      <summary>
-        <para>Gets whether the specified style is marked as deleted.</para>
-      </summary>
-      <value>true if the style is deleted; otherwise, false.</value>
-    </member>
-    <member name="P:DevExpress.XtraRichEdit.API.Native.TableCellStyle.Name">
-      <summary>
-        <para>Gets or sets the name of the style.</para>
-      </summary>
-      <value>A string specifying the style name.</value>
-    </member>
-    <member name="P:DevExpress.XtraRichEdit.API.Native.TableCellStyle.Parent">
-      <summary>
-        <para>Gets or sets the style from which the current style inherits.</para>
-      </summary>
-      <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.TableCellStyle"/> object that is the parent style.</value>
-    </member>
-    <member name="T:DevExpress.XtraRichEdit.API.Native.TableCellStyleCollection">
-      <summary>
-        <para>A collection of styles for table cells in a Snap application.</para>
-      </summary>
-    </member>
-    <member name="M:DevExpress.XtraRichEdit.API.Native.TableCellStyleCollection.Add(DevExpress.XtraRichEdit.API.Native.TableCellStyle)">
-      <summary>
-        <para>Add a style to the collection of styles in the current document.</para>
-      </summary>
-      <param name="style">A <see cref="T:DevExpress.XtraRichEdit.API.Native.TableCellStyle"/> class instance that is a table style.</param>
-    </member>
-    <member name="M:DevExpress.XtraRichEdit.API.Native.TableCellStyleCollection.CreateNew">
-      <summary>
-        <para>Creates a new table cell style.</para>
-      </summary>
-      <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.TableCellStyle"/> object that is a table cell style.</returns>
-    </member>
-    <member name="M:DevExpress.XtraRichEdit.API.Native.TableCellStyleCollection.Delete(DevExpress.XtraRichEdit.API.Native.TableCellStyle)">
-      <summary>
-        <para>Marks the specified style as deleted, so it can no longer be applied.</para>
-      </summary>
-      <param name="style">A <see cref="T:DevExpress.XtraRichEdit.API.Native.TableStyle"/> to delete.</param>
-    </member>
-    <member name="P:DevExpress.XtraRichEdit.API.Native.TableCellStyleCollection.Item(System.String)">
-      <summary>
-        <para>Returns a table cell style with the specified name.</para>
-      </summary>
-      <param name="name">A <see cref="T:System.String"/> value, specifying the item name.</param>
-      <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.TableCellStyle"/> value.</value>
-    </member>
-    <member name="M:DevExpress.XtraRichEdit.API.Native.TableCellStyleCollection.Restore(DevExpress.XtraRichEdit.API.Native.TableCellStyle)">
-      <summary>
-        <para>Restores the table cell style marked as deleted.</para>
-      </summary>
-      <param name="style">A <see cref="T:DevExpress.XtraRichEdit.API.Native.TableCellStyle"/> object that is the style to be restored.</param>
     </member>
     <member name="T:DevExpress.XtraRichEdit.API.Native.TableCellVerticalAlignment">
       <summary>
@@ -35932,12 +35857,6 @@
       </summary>
       <value>A <see cref="T:DevExpress.XtraRichEdit.RichEditFormattingMarkVisibility"/> enumeration member specifying the visibility of the paragraph marks.</value>
     </member>
-    <member name="P:DevExpress.XtraRichEdit.FormattingMarkVisibilityOptions.Separator">
-      <summary>
-        <para>Not in use for the RichEditControl.</para>
-      </summary>
-      <value>Indicates the separator visibility.</value>
-    </member>
     <member name="P:DevExpress.XtraRichEdit.FormattingMarkVisibilityOptions.Space">
       <summary>
         <para>Gets or sets whether space characters should be made visible.</para>
@@ -39595,16 +39514,16 @@
     </member>
     <member name="M:DevExpress.XtraRichEdit.RichEditDocumentServer.MailMerge(DevExpress.XtraRichEdit.API.Native.Document)">
       <summary>
-        <para>Merges the current document and sends the result to the specified <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/>.</para>
+        <para>Merges data to the current document and sends the result to the specified <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> instance.</para>
       </summary>
       <param name="document">An object exposing the <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> interface to which the merged document is sent.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.RichEditDocumentServer.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,DevExpress.XtraRichEdit.API.Native.Document)">
       <summary>
-        <para>Merges the current document using the specified options, and sends the result to the specified <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/>.</para>
+        <para>Merges data to the current document and sends the result to the specified <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> instance. Allows you to set the mail merge options.</para>
       </summary>
-      <param name="options">A <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface exposing options for the current merge.</param>
-      <param name="targetDocument">An object exposing the <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> interface to which the merged document is sent.</param>
+      <param name="options">An object that contains options for the current merge.</param>
+      <param name="targetDocument">An object that exposes the <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> interface to which the merged document is sent.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.RichEditDocumentServer.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,DevExpress.XtraRichEdit.IRichEditDocumentServer)">
       <summary>
@@ -39615,19 +39534,19 @@
     </member>
     <member name="M:DevExpress.XtraRichEdit.RichEditDocumentServer.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
       <summary>
-        <para>Merges the current document using the specified options and sends the result to the specified stream in a specified format.</para>
+        <para>Merges data to the current document and sends the result in the specified format to a stream. Allows you to set mail merge options.</para>
       </summary>
-      <param name="options">A <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface exposing options for the current merge.</param>
-      <param name="stream">A <see cref="T:System.IO.Stream"/> object that is the output stream.</param>
-      <param name="format">A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration member specifying the destination format.</param>
+      <param name="options">An object that contains options for the current merge.</param>
+      <param name="stream">An output stream.</param>
+      <param name="format">An enumeration member that indicates the destination format.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.RichEditDocumentServer.MailMerge(DevExpress.XtraRichEdit.API.Native.MailMergeOptions,System.String,DevExpress.XtraRichEdit.DocumentFormat)">
       <summary>
-        <para>Merges the current document using the specified options and sends the result to the specified file in a specified format.</para>
+        <para>Merges data to the current document and saves the result to a file in the specified format. Allows you to set mail merge options.</para>
       </summary>
-      <param name="options">A <see cref="T:DevExpress.XtraRichEdit.API.Native.MailMergeOptions"/> interface exposing options for the current merge.</param>
+      <param name="options">An object that contains options for the current merge.</param>
       <param name="fileName">A name of the file to which the merged document is saved.</param>
-      <param name="format">A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration member specifying the destination format.</param>
+      <param name="format">An enumeration member that indicates the destination format.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.RichEditDocumentServer.MailMerge(DevExpress.XtraRichEdit.IRichEditDocumentServer)">
       <summary>
@@ -39637,17 +39556,17 @@
     </member>
     <member name="M:DevExpress.XtraRichEdit.RichEditDocumentServer.MailMerge(System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
       <summary>
-        <para>Merges the current document and sends the result to the specified stream in a specified format.</para>
+        <para>Merges data to the current document, and sends the result in the specified format to a stream.</para>
       </summary>
-      <param name="stream">A <see cref="T:System.IO.Stream"/> object that is the output stream.</param>
-      <param name="format">A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration member specifying the destination format.</param>
+      <param name="stream">An output stream.</param>
+      <param name="format">An enumeration member that indicates the destination format.</param>
     </member>
     <member name="M:DevExpress.XtraRichEdit.RichEditDocumentServer.MailMerge(System.String,DevExpress.XtraRichEdit.DocumentFormat)">
       <summary>
-        <para>Merges the current document and sends the result to the specified file in a specified format.</para>
+        <para>Merges data to the current document and sends the result to a file in the specified format.</para>
       </summary>
-      <param name="fileName">A name of the file to which the merged document is saved.</param>
-      <param name="format">A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration member specifying the destination format.</param>
+      <param name="fileName">A name of the file to which the merge result is saved.</param>
+      <param name="format">An enumeration member that indicates the destination format.</param>
     </member>
     <member name="E:DevExpress.XtraRichEdit.RichEditDocumentServer.MailMergeFinished">
       <summary>
@@ -39955,7 +39874,7 @@
     </member>
     <member name="T:DevExpress.XtraRichEdit.RichEditMailMergeOptions">
       <summary>
-        <para>Specifies the default mail merge options.</para>
+        <para>Contains common mail merge options.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraRichEdit.RichEditMailMergeOptions.#ctor">
@@ -39965,27 +39884,27 @@
     </member>
     <member name="P:DevExpress.XtraRichEdit.RichEditMailMergeOptions.ActiveRecord">
       <summary>
-        <para>Specifies the index of a data record displayed by fields in a mail-merge document.</para>
+        <para>Specifies the index of a data record displayed by fields in a mail merge document.</para>
       </summary>
-      <value>An integer value, specifying the ordinal number of a record in a data source.</value>
+      <value>The ordinal number of a record in a data source.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.RichEditMailMergeOptions.CustomSeparators">
       <summary>
         <para>Allows you to specify group and decimal separators used in a numeric format switch.</para>
       </summary>
-      <value>A <see cref="T:DevExpress.XtraRichEdit.MailMergeCustomSeparators"/> object.</value>
+      <value>An object that contains custom separator settings.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.RichEditMailMergeOptions.DataMember">
       <summary>
-        <para>Specifies the member of a mail-merge document‘s data source.</para>
+        <para>Specifies the member of a mail merge document‘s data source.</para>
       </summary>
-      <value>A <see cref="T:System.String"/> value, specifying the data member name.</value>
+      <value>The data member name.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.RichEditMailMergeOptions.DataSource">
       <summary>
-        <para>Specifies the data source of a mail-merge document.</para>
+        <para>Specifies the data source of a mail merge document.</para>
       </summary>
-      <value>A <see cref="T:System.Object"/> value, specifying the document data source.</value>
+      <value>The data source.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.RichEditMailMergeOptions.FieldNameFormatString">
       <summary>
@@ -39995,15 +39914,15 @@
     </member>
     <member name="P:DevExpress.XtraRichEdit.RichEditMailMergeOptions.KeepLastParagraph">
       <summary>
-        <para>Specifies whether or not the last paragraph of the inserted document is kept in the resulting document.</para>
+        <para>Specifies whether to keep the last paragraph of the inserted document in the resulting document.</para>
       </summary>
       <value>true, to retain the last paragraph of the inserted document; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.XtraRichEdit.RichEditMailMergeOptions.ViewMergedData">
       <summary>
-        <para>Specifies whether to display field results or field codes in a mail-merge document.</para>
+        <para>Specifies whether to display field results or field codes in a mail merge document.</para>
       </summary>
-      <value>true, to display actual data; otherwise, false.</value>
+      <value>true to display actual data; otherwise, false.</value>
     </member>
     <member name="T:DevExpress.XtraRichEdit.RichEditNotificationOptions">
       <summary>

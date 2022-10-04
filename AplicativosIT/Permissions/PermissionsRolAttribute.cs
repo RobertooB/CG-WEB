@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-using AplicativoWebIt.Models;
+using AplicativosIT.Models;
 
-namespace AplicativoWebIt.Permissions
+namespace AplicativosIT.Permissions
 {
     public class PermissionsRolAttribute : ActionFilterAttribute
     {

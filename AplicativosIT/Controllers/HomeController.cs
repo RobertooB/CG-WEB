@@ -6,10 +6,10 @@ using System.Web.Mvc;
 using System.Web.Security;
 
 
-using AplicativoWebIt.Permissions;
-using AplicativoWebIt.Models;
+using AplicativosIT.Permissions;
+using AplicativosIT.Models;
 
-namespace AplicativoWebIt.Controllers
+namespace AplicativosIT.Controllers
 {
     [Authorize]
     public class HomeController : Controller
