@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="LogOn" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LogOn.aspx.cs" Inherits="AplicativosIT.LogOn" %>
-<%@ Register assembly="DevExpress.Web.v22.1, Version=22.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
                 <dx:ASPxImage runat="server" ID="LogoImage" ImageUrl="~/Content/Images/Icons/307x46.svg" ShowLoadingImage="true" Visible="true" CssClass="LogonLogo"></dx:ASPxImage>
