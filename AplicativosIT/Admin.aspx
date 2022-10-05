@@ -111,6 +111,7 @@
                                             <Style BackColor="#0066CC" Cursor="pointer" ForeColor="White">
                                                 <HoverStyle BackColor="#0000CC" ForeColor="White" >
                                                 </HoverStyle >
+                                                <Paddings Padding="5px" />
                                             </Style>
                                         </Styles>
                                     </UpdateButton>
@@ -119,6 +120,7 @@
                                             <Style BackColor="#0066CC" Cursor="pointer" ForeColor="White">
                                                 <HoverStyle BackColor="#0000CC" ForeColor="White" >
                                                 </HoverStyle >
+                                                <Paddings Padding="5px" />
                                             </Style>
                                         </Styles>
                                     </CancelButton>
@@ -225,7 +227,7 @@
             </dx:PopupControlContentControl>
         </ContentCollection>
         <CloseButtonStyle CssClass="btnclose23">
-            <HoverStyle BackColor="Red" CssClass="btnclose" ForeColor="Yellow">
+            <HoverStyle CssClass="btnclose">
             </HoverStyle>
         </CloseButtonStyle>
         <ContentStyle>
@@ -234,13 +236,13 @@
         <Border BorderColor="#0066FF" BorderStyle="Solid" BorderWidth="3px" />
     </dx:ASPxPopupControl>
 
-    <dx:ASPxPopupControl ID="ASPxPopupControl1" runat="server" Width="531px" CloseAction="CloseButton" CloseOnEscape="True" Modal="True"
+    <dx:ASPxPopupControl ID="ASPxPopupControl1" runat="server" Width="546px" CloseAction="CloseButton" CloseOnEscape="True" Modal="True"
         PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcInfo"
         HeaderText="Información" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="True" Theme="MetropolisBlue">
         <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('entryGroup'); }" />
         <ContentCollection>
             <dx:PopupControlContentControl runat="server">
-                <dx:ASPxPanel ID="ASPxPanel1" runat="server" DefaultButton="btOK" Width="489px">
+                <dx:ASPxPanel ID="ASPxPanel1" runat="server" DefaultButton="btOK" Width="458px">
                     <PanelCollection>
                         <dx:PanelContent runat="server">
                             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto X %>" SelectCommand="SELECT [id], [ip_server], [ip_database], [management_db], [version_db], [number_module] FROM [info_environmentt]" DeleteCommand="DELETE FROM [info_environmentt] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environmentt] ([ip_server], [ip_database], [management_db], [version_db], [number_module]) VALUES (@ip_server, @ip_database, @management_db, @version_db, @number_module)" UpdateCommand="UPDATE [info_environmentt] SET [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module WHERE [id] = @id">
@@ -375,10 +377,6 @@
                 </dx:ASPxPanel>
             </dx:PopupControlContentControl>
         </ContentCollection>
-        <CloseButtonStyle>
-            <HoverStyle BackColor="Red" ForeColor="Yellow">
-            </HoverStyle>
-        </CloseButtonStyle>
         <ContentStyle>
             <Paddings PaddingBottom="5px" />
         </ContentStyle>
@@ -429,6 +427,7 @@
                             <Style BackColor="#0066CC" Cursor="pointer" ForeColor="White">
                                 <HoverStyle BackColor="#0000CC" ForeColor="White" >
                                 </HoverStyle >
+                                <Paddings Padding="5px" />
                             </Style>
                         </Styles>
                     </UpdateButton>
@@ -437,6 +436,7 @@
                             <Style BackColor="#0066CC" Cursor="pointer" ForeColor="White">
                                 <HoverStyle BackColor="#0000CC" ForeColor="White" >
                                 </HoverStyle >
+                                <Paddings Padding="5px" />
                             </Style>
                         </Styles>
                     </CancelButton>
@@ -452,12 +452,32 @@
                     <dx:CardViewTextColumn FieldName="name_environment" VisibleIndex="0">
                     </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="url" VisibleIndex="1">
+                        <PropertiesTextEdit>
+                            <ValidationSettings>
+                                <RegularExpression ErrorText="La URL debe de comenzar con https." ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?" />
+                            </ValidationSettings>
+                        </PropertiesTextEdit>
                     </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="ip_server" VisibleIndex="2">
+                        <PropertiesTextEdit>
+                            <ValidationSettings>
+                                <RegularExpression ErrorText="La IP debe de ser 255.255.255.255 u otro formato valido." ValidationExpression="^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" />
+                            </ValidationSettings>
+                        </PropertiesTextEdit>
                     </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="ip_database" VisibleIndex="3">
+                        <PropertiesTextEdit>
+                            <ValidationSettings>
+                                <RegularExpression ErrorText="La IP debe de ser 255.255.255.255 u otro formato valido." ValidationExpression="^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" />
+                            </ValidationSettings>
+                        </PropertiesTextEdit>
                     </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="number_module" VisibleIndex="7">
+                        <PropertiesTextEdit>
+                            <ValidationSettings>
+                                <RegularExpression ErrorText="Solo se aceptan números" ValidationExpression="\d+" />
+                            </ValidationSettings>
+                        </PropertiesTextEdit>
                     </dx:CardViewTextColumn>
                     <dx:CardViewBinaryImageColumn FieldName="logo" VisibleIndex="8">
                         <PropertiesBinaryImage ImageHeight="175px" ImageWidth="200px">
@@ -479,21 +499,21 @@
                     <Items>
                         <dx:CardViewCommandLayoutItem ColSpan="1" HorizontalAlign="Right">
                         </dx:CardViewCommandLayoutItem>
-                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="name_environment">
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="name_environment" Caption="Nombre">
                         </dx:CardViewColumnLayoutItem>
-                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="logo">
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="logo" Caption="Logo">
                         </dx:CardViewColumnLayoutItem>
-                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="url">
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="url" Caption="Url">
                         </dx:CardViewColumnLayoutItem>
-                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="ip_server">
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="ip_server" Caption="IP Servidor">
                         </dx:CardViewColumnLayoutItem>
-                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="ip_database">
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="ip_database" Caption="IP Base de Datos">
                         </dx:CardViewColumnLayoutItem>
-                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="management_db">
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="management_db" Caption="Gestor de Base de Datos">
                         </dx:CardViewColumnLayoutItem>
-                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="version_db">
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="version_db" Caption="Versión del Gestor de Base de Datos">
                         </dx:CardViewColumnLayoutItem>
-                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="number_module">
+                        <dx:CardViewColumnLayoutItem ColSpan="1" ColumnName="number_module" Caption="Cantidad de Módulos del Entorno">
                         </dx:CardViewColumnLayoutItem>
                         <dx:EditModeCommandLayoutItem ColSpan="1" HorizontalAlign="Right">
                         </dx:EditModeCommandLayoutItem>
@@ -504,7 +524,7 @@
                     <Items>
                         <dx:CardViewCommandLayoutItem ColSpan="1" HorizontalAlign="Right" ShowDeleteButton="True" ShowEditButton="True" ShowNewButton="True">
                         </dx:CardViewCommandLayoutItem>
-                        <dx:CardViewColumnLayoutItem Caption=" " ColSpan="1" ColumnName="name_environment">
+                        <dx:CardViewColumnLayoutItem Caption=" " ColSpan="1" ColumnName="name_environment" HorizontalAlign="Center">
                         </dx:CardViewColumnLayoutItem>
                         <dx:CardViewColumnLayoutItem Caption=" " ColSpan="1" ColumnName="logo">
                         </dx:CardViewColumnLayoutItem>

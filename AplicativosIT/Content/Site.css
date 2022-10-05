@@ -28,6 +28,7 @@ input,
 select,
 textarea {
     max-width: 280px;
+    width: 179px;
 }
 
 .card-view {

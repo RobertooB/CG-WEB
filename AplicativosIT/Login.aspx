@@ -7,19 +7,40 @@
         .Cuadrito {
 
         }
-    </style>
+        .auto-style1 {
+            width: 259px;
+        }
+        .auto-style2 {
+            width: 234px;
+        }
+        .auto-style3 {
+            width: 224px;
+        }
+        </style>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
         function login() {
             var password = document.getElementById("Password").value;
             if (password == "Designer") {
-                location.href = 'Designer.aspx';
+                location.href = "Designer.aspx";
             }
             if (password == "Admin") {
-                location.href = 'Admin.aspx';
+                location.href = "Admin.aspx";
             }
             if (password == "")  {
-                alert("No estas registro Perrow")
+                Swal.fire({
+                    title: 'NO SE ENCUENTRA REGISTADO',
+                    width: '41%',
+                    padding: '85px',
+                    color: '#fff',
+                    background: 'url("https://i.pinimg.com/736x/b1/ec/77/b1ec770f22bab5ae8b65a975640386dc.jpg") no-repeat',
+                    backdrop: `
+                    rgba(0,0,0,0.6)
+                    url("https://i.gifer.com/origin/fd/fdf70f5f4989f9c08f033da50c38170e.gif")
+                    left top
+                    no-repeat
+                  `
+                })
             }
         }
     </script>
@@ -38,39 +59,37 @@
                    <path fill="#ffffff" fill-opacity="1" d="M0,256L48,234.7C96,213,192,171,288,176C384,181,480,235,576,261.3C672,288,768,288,864,261.3C960,235,1056,181,1152,160C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                 </svg>
         </div>
-    <br />
-    <br />
     <div>
-                <table cellpadding="1" cellspacing="0" style="border-collapse:collapse; background-color: aquamarine ; margin-left: 40%;">
+                <table cellpadding="1" cellspacing="0" style="border-collapse:collapse; background: radial-gradient(circle, rgba(27,202,237,1) 28%, rgba(13,175,179,1) 63%, rgba(93,69,231,1) 100%); margin-left: 40%; border-radius: 15px">
                     <tr>
-                        <td>
-                            <table cellpadding="0" class="Cuadrito" style="margin: 10px">
+                        <td class="auto-style1">
+                            <table cellpadding="0" class="Cuadrito" style="margin-left: 20px; margin-right: 20px; margin-top: 10px; margin-bottom: 10px;">
                                 <tr>
-                                    <td align="center" colspan="2" style="font-size: 35px; font-weight: bold; color:white">Iniciar sesión</td>
+                                    <td align="center" colspan="2" style="font-size: 35px; font-weight: bold; color:white" class="auto-style2">LOGIN</td>
                                 </tr>
                                 <tr>
-                                    <td align="left">
+                                    <td align="left" style="padding:2px;" class="auto-style2">
                                         <label>Nombre de usuario:</label>
                                     </td>
                                     </tr>
                                     <tr>
-                                    <td align="left">
-                                        <input type="text" id="UserName" />
+                                    <td style="padding:2px;" class="auto-style2">
+                                        <input type="text" id="UserName" class="auto-style3" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="left">
+                                    <td align="left" style="padding:2px;" class="auto-style2">
                                         <label>Password:</label>
                                     </td>
                                     </tr>
                                 <tr>
-                                    <td>
-                                        <input type="password" id="Password" />
+                                    <td style="padding:2px;" class="auto-style2">
+                                        <input type="password" id="Password" class="auto-style3" />
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="right" colspan="2">
-                                        <button onclick="login()">Iniciar Sesión</button>
+                                    <td align="center" colspan="2" style="padding:6px;" class="auto-style2">
+                                        <button type="button" class="btn btn-secondary" onclick="login()">Iniciar Sesión</button>
                                     </td>
                                 </tr>
                             </table>
