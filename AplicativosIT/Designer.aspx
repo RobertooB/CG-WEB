@@ -22,7 +22,7 @@
             };
         }
         function ShowExit() {
-            location.href("./Default.aspx");
+            window.location = "Default.aspx";
         }
         function ShowUsersWindow() {
             pcUsuarios.Show();
@@ -428,7 +428,7 @@
                     <asp:Parameter DefaultValue="rol" Name="name_catalogue" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:SqlDataSource ID="CardView1" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto X %>" SelectCommand="SELECT * FROM [info_environment]" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_environment], [logo], [url], [ip_server], [ip_database], [management_db], [version_db], [number_module]) VALUES (@name_environment, @logo, @url, @ip_server, @ip_database, @management_db, @version_db, @number_module)" UpdateCommand="UPDATE [info_environment] SET [name_environment] = @name_environment, [logo] = @logo, [url] = @url, [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module WHERE [id] = @id">
+            <asp:SqlDataSource ID="CardView1" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto X %>" SelectCommand="SELECT * FROM [info_environmentt]" DeleteCommand="DELETE FROM [info_environmentt] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environmentt] ([name_environment], [logo], [url], [ip_server], [ip_database], [management_db], [version_db], [number_module]) VALUES (@name_environment, @logo, @url, @ip_server, @ip_database, @management_db, @version_db, @number_module)" UpdateCommand="UPDATE [info_environmentt] SET [name_environment] = @name_environment, [logo] = @logo, [url] = @url, [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module WHERE [id] = @id">
                 <DeleteParameters>
                     <asp:Parameter Name="id" Type="Int32" />
                 </DeleteParameters>
@@ -438,8 +438,8 @@
                     <asp:Parameter Name="url" Type="String" />
                     <asp:Parameter Name="ip_server" Type="String" />
                     <asp:Parameter Name="ip_database" Type="String" />
-                    <asp:Parameter Name="management_db" Type="Int32" />
-                    <asp:Parameter Name="version_db" Type="Int32" />
+                    <asp:Parameter Name="management_db" Type="String" />
+                    <asp:Parameter Name="version_db" Type="String" />
                     <asp:Parameter Name="number_module" Type="Int32" />
                 </InsertParameters>
                 <UpdateParameters>
@@ -448,8 +448,8 @@
                     <asp:Parameter Name="url" Type="String" />
                     <asp:Parameter Name="ip_server" Type="String" />
                     <asp:Parameter Name="ip_database" Type="String" />
-                    <asp:Parameter Name="management_db" Type="Int32" />
-                    <asp:Parameter Name="version_db" Type="Int32" />
+                    <asp:Parameter Name="management_db" Type="String" />
+                    <asp:Parameter Name="version_db" Type="String" />
                     <asp:Parameter Name="number_module" Type="Int32" />
                     <asp:Parameter Name="id" Type="Int32" />
                 </UpdateParameters>

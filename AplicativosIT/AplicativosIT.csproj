@@ -269,8 +269,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Home\Index.aspx" />
     <Content Include="Admin.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Designer.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -321,13 +321,20 @@
     <Content Include="Site.Master" />
     <Content Include="Styles\DefaultStyles.css" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Home\Index.aspx.cs">
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -345,10 +352,6 @@
     <Compile Include="Controllers\AccessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Logic\Logic_user.cs" />
-    <Compile Include="Home\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Permissions\PermissionsRolAttribute.cs" />
@@ -402,12 +405,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-    <Content Include="Access\Index.cshtml" />
     <Content Include="Views\web.config" />
     <Content Include="Views\Access\Index.cshtml" />
     <None Include="Web.Debug.config">

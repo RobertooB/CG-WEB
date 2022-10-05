@@ -27,7 +27,7 @@
             };
         }
         function ShowExit() {
-            window.open("Default.aspx");
+            window.location="Default.aspx";
         }
         function ShowUsersWindow() {
             pcUsuarios.Show();
@@ -234,7 +234,7 @@
         <Border BorderColor="#0066FF" BorderStyle="Solid" BorderWidth="3px" />
     </dx:ASPxPopupControl>
 
-    <dx:ASPxPopupControl ID="ASPxPopupControl1" runat="server" Width="577px" CloseAction="CloseButton" CloseOnEscape="True" Modal="True"
+    <dx:ASPxPopupControl ID="ASPxPopupControl1" runat="server" Width="531px" CloseAction="CloseButton" CloseOnEscape="True" Modal="True"
         PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pcInfo"
         HeaderText="Información" AllowDragging="True" PopupAnimationType="None" EnableViewState="False" AutoUpdatePosition="True" Theme="MetropolisBlue">
         <ClientSideEvents PopUp="function(s, e) { ASPxClientEdit.ClearGroup('entryGroup'); }" />
@@ -243,28 +243,28 @@
                 <dx:ASPxPanel ID="ASPxPanel1" runat="server" DefaultButton="btOK" Width="489px">
                     <PanelCollection>
                         <dx:PanelContent runat="server">
-                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto X %>" SelectCommand="SELECT [id], [ip_server], [ip_database], [management_db], [version_db], [number_module] FROM [info_environment]" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([ip_server], [ip_database], [management_db], [version_db], [number_module]) VALUES (@ip_server, @ip_database, @management_db, @version_db, @number_module)" UpdateCommand="UPDATE [info_environment] SET [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module WHERE [id] = @id">
+                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto X %>" SelectCommand="SELECT [id], [ip_server], [ip_database], [management_db], [version_db], [number_module] FROM [info_environmentt]" DeleteCommand="DELETE FROM [info_environmentt] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environmentt] ([ip_server], [ip_database], [management_db], [version_db], [number_module]) VALUES (@ip_server, @ip_database, @management_db, @version_db, @number_module)" UpdateCommand="UPDATE [info_environmentt] SET [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module WHERE [id] = @id">
                                 <DeleteParameters>
                                     <asp:Parameter Name="id" Type="Int32" />
                                 </DeleteParameters>
                                 <InsertParameters>
                                     <asp:Parameter Name="ip_server" Type="String" />
                                     <asp:Parameter Name="ip_database" Type="String" />
-                                    <asp:Parameter Name="management_db" Type="Int32" />
-                                    <asp:Parameter Name="version_db" Type="Int32" />
+                                    <asp:Parameter Name="management_db" Type="String" />
+                                    <asp:Parameter Name="version_db" Type="String" />
                                     <asp:Parameter Name="number_module" Type="Int32" />
                                 </InsertParameters>
                                 <UpdateParameters>
                                     <asp:Parameter Name="ip_server" Type="String" />
                                     <asp:Parameter Name="ip_database" Type="String" />
-                                    <asp:Parameter Name="management_db" Type="Int32" />
-                                    <asp:Parameter Name="version_db" Type="Int32" />
+                                    <asp:Parameter Name="management_db" Type="String" />
+                                    <asp:Parameter Name="version_db" Type="String" />
                                     <asp:Parameter Name="number_module" Type="Int32" />
                                     <asp:Parameter Name="id" Type="Int32" />
                                 </UpdateParameters>
                             </asp:SqlDataSource>
 
-                            <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" Width="544px" KeyFieldName="id" Theme="MetropolisBlue" Images-DetailCollapsedButton-IconID="iconbuilder_actions_arrow3right_svg_gray_16x16" Images-DetailExpandedButton-IconID="iconbuilder_actions_arrow3up_svg_gray_16x16">
+                            <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" Width="354px" KeyFieldName="id" Theme="MetropolisBlue" Images-DetailCollapsedButton-IconID="iconbuilder_actions_arrow3right_svg_gray_16x16" Images-DetailExpandedButton-IconID="iconbuilder_actions_arrow3up_svg_gray_16x16">
                                 <SettingsPager>
                                     <FirstPageButton>
                                         <Image IconID="arrows_prev_svg_16x16">
@@ -323,18 +323,18 @@
                                 </Templates>
                                 <SettingsDetail ShowDetailRow="true" AllowOnlyOneMasterRowExpanded="true" />
                                 <Columns>
-                                    <dx:GridViewDataTextColumn FieldName="id" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="0" Caption="ID">
+                                    <dx:GridViewDataTextColumn FieldName="id" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="0">
                                         <EditFormSettings Visible="False" />
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn FieldName="ip_server" ShowInCustomizationForm="True" VisibleIndex="1" Caption="IP Servidor">
+                                    <dx:GridViewDataTextColumn FieldName="ip_server" ShowInCustomizationForm="True" VisibleIndex="1">
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn FieldName="ip_database" ShowInCustomizationForm="True" VisibleIndex="2" Caption="IP Base de Datos">
+                                    <dx:GridViewDataTextColumn FieldName="ip_database" ShowInCustomizationForm="True" VisibleIndex="2">
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn FieldName="management_db" ShowInCustomizationForm="True" VisibleIndex="3" Caption="Gestor de Base de Datos">
+                                    <dx:GridViewDataTextColumn FieldName="management_db" ShowInCustomizationForm="True" VisibleIndex="3">
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn FieldName="version_db" ShowInCustomizationForm="True" VisibleIndex="4" Caption="Versión del Gestor de Base de Datos">
+                                    <dx:GridViewDataTextColumn FieldName="version_db" ShowInCustomizationForm="True" VisibleIndex="4">
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn FieldName="number_module" ShowInCustomizationForm="True" VisibleIndex="5" Caption="Cantidad de Módulos del Entorno">
+                                    <dx:GridViewDataTextColumn FieldName="number_module" ShowInCustomizationForm="True" VisibleIndex="5">
                                     </dx:GridViewDataTextColumn>
                                 </Columns>
                                 <Styles>
@@ -457,18 +457,22 @@
                     </dx:CardViewTextColumn>
                     <dx:CardViewTextColumn FieldName="ip_database" VisibleIndex="3">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="management_db" VisibleIndex="4">
+                    <dx:CardViewTextColumn FieldName="number_module" VisibleIndex="7">
                     </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="version_db" VisibleIndex="5">
-                    </dx:CardViewTextColumn>
-                    <dx:CardViewTextColumn FieldName="number_module" VisibleIndex="6">
-                    </dx:CardViewTextColumn>
-                    <dx:CardViewBinaryImageColumn FieldName="logo" VisibleIndex="7">
+                    <dx:CardViewBinaryImageColumn FieldName="logo" VisibleIndex="8">
                         <PropertiesBinaryImage ImageHeight="175px" ImageWidth="200px">
                             <EditingSettings Enabled="True">
                             </EditingSettings>
                         </PropertiesBinaryImage>
                     </dx:CardViewBinaryImageColumn>
+                    <dx:CardViewComboBoxColumn FieldName="management_db" VisibleIndex="4">
+                        <PropertiesComboBox DataSourceID="ComboBox" TextField="value_catalogue" ValueField="value_catalogue">
+                        </PropertiesComboBox>
+                    </dx:CardViewComboBoxColumn>
+                    <dx:CardViewComboBoxColumn FieldName="version_db" VisibleIndex="5">
+                        <PropertiesComboBox DataSourceID="ComboBox0" TextField="value_catalogue" ValueField="value_catalogue">
+                        </PropertiesComboBox>
+                    </dx:CardViewComboBoxColumn>
                 </Columns>
 
                 <EditFormLayoutProperties>
@@ -577,7 +581,7 @@
                     <asp:Parameter DefaultValue="rol" Name="name_catalogue" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:SqlDataSource ID="CardView1" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto X %>" SelectCommand="SELECT * FROM [info_environment]" DeleteCommand="DELETE FROM [info_environment] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environment] ([name_environment], [logo], [url], [ip_server], [ip_database], [management_db], [version_db], [number_module]) VALUES (@name_environment, @logo, @url, @ip_server, @ip_database, @management_db, @version_db, @number_module)" UpdateCommand="UPDATE [info_environment] SET [name_environment] = @name_environment, [logo] = @logo, [url] = @url, [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module WHERE [id] = @id">
+            <asp:SqlDataSource ID="CardView1" runat="server" ConnectionString="<%$ ConnectionStrings:Proyecto X %>" SelectCommand="SELECT * FROM [info_environmentt]" DeleteCommand="DELETE FROM [info_environmentt] WHERE [id] = @id" InsertCommand="INSERT INTO [info_environmentt] ([name_environment], [logo], [url], [ip_server], [ip_database], [management_db], [version_db], [number_module]) VALUES (@name_environment, @logo, @url, @ip_server, @ip_database, @management_db, @version_db, @number_module)" UpdateCommand="UPDATE [info_environmentt] SET [name_environment] = @name_environment, [logo] = @logo, [url] = @url, [ip_server] = @ip_server, [ip_database] = @ip_database, [management_db] = @management_db, [version_db] = @version_db, [number_module] = @number_module WHERE [id] = @id">
                 <DeleteParameters>
                     <asp:Parameter Name="id" Type="Int32" />
                 </DeleteParameters>
@@ -587,8 +591,8 @@
                     <asp:Parameter Name="url" Type="String" />
                     <asp:Parameter Name="ip_server" Type="String" />
                     <asp:Parameter Name="ip_database" Type="String" />
-                    <asp:Parameter Name="management_db" Type="Int32" />
-                    <asp:Parameter Name="version_db" Type="Int32" />
+                    <asp:Parameter Name="management_db" Type="String" />
+                    <asp:Parameter Name="version_db" Type="String" />
                     <asp:Parameter Name="number_module" Type="Int32" />
                 </InsertParameters>
                 <UpdateParameters>
@@ -597,8 +601,8 @@
                     <asp:Parameter Name="url" Type="String" />
                     <asp:Parameter Name="ip_server" Type="String" />
                     <asp:Parameter Name="ip_database" Type="String" />
-                    <asp:Parameter Name="management_db" Type="Int32" />
-                    <asp:Parameter Name="version_db" Type="Int32" />
+                    <asp:Parameter Name="management_db" Type="String" />
+                    <asp:Parameter Name="version_db" Type="String" />
                     <asp:Parameter Name="number_module" Type="Int32" />
                     <asp:Parameter Name="id" Type="Int32" />
                 </UpdateParameters>
